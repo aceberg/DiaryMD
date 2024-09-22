@@ -1,0 +1,34 @@
+.dir,.file,.img-mg {
+  cursor: pointer;
+}
+
+.dir:hover,.file:hover,.img-mg:hover {
+  background-color: #00000015;
+}
+
+.dir::before {
+  content: url('./assets/folder.svg'); 
+  margin-right: 6px;
+}
+
+.file::before {
+  content: url('./assets/file.svg'); 
+  margin-right: 6px;
+}
+
+.menu-card {
+  border-width: thin;
+  border-color: #d1caca;
+  border-style: solid;
+  border-radius: 1%;
+  height: 100%;
+}
+
+.img-mg {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+
+#menuUL {
+  list-style-type: none;
+}

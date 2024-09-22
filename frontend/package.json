@@ -15,6 +15,7 @@
     "vite-plugin-solid": "^2.8.2"
   },
   "dependencies": {
+    "aceberg-bootswatch-fork": "^5.3.3-2",
     "easymde": "^2.18.0",
     "solid-js": "^1.8.11"
   }
