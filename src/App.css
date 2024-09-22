@@ -1,0 +1,11 @@
+.editor-container {
+  width: 900px; /* Set the width of the editor container */
+}
+
+textarea {
+  width: 100%; /* Ensure the textarea takes full width of the container */
+}
+
+table {
+  width: 100%;
+}
