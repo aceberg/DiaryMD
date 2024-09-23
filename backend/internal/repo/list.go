@@ -1,6 +1,7 @@
 package repo
 
 import (
+	"hash/fnv"
 	"log"
 	"os"
 
@@ -9,7 +10,7 @@ import (
 )
 
 // List - list directory
-func List(path string) (dirs []models.DirsFiles) {
+func List(path string, lastID int) (dirs []models.DirsFiles) {
 	var dir models.DirsFiles
 
 	f, err := os.Open(path)
@@ -18,13 +19,19 @@ func List(path string) (dirs []models.DirsFiles) {
 	files, err := f.Readdir(0)
 	check.IfError(err)
 
-	for i, v := range files {
-		log.Println(v.Name(), v.IsDir())
+	for _, v := range files {
 
-		dir.ID = i + 1
 		dir.Name = v.Name()
 		dir.IsDir = v.IsDir()
 		dir.Path = path + "/" + dir.Name
+		dir.Parent = lastID
+
+		h := fnv.New32a()
+		h.Write([]byte(dir.Path))
+
+		dir.ID = int(h.Sum32())
+
+		log.Println(dir.ID, ":", dir.Path)
 
 		dirs = append(dirs, dir)
 	}

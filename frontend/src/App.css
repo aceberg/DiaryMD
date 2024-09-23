@@ -26,9 +26,30 @@
 
 .img-mg {
   margin-top: 15px;
-  margin-left: 20px;
+  margin-left: 25px;
 }
 
 #menuUL {
   list-style-type: none;
+}
+
+
+.CodeMirror {
+  background-color: #faeddc; 
+}
+.CodeMirror-lines {
+  color: #333; 
+}
+.CodeMirror-linenumber {
+  color: #00000060;
+  background-color: #f8e6cc;
+}
+.CodeMirror-gutters {
+  background-color: #f8e6cc;
+}
+.editor-toolbar {
+  background-color: #ebbf83;
+}
+.editor-toolbar a {
+  color: #f8e6cc;
 }

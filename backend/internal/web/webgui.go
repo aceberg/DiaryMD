@@ -41,8 +41,10 @@ func Gui(dirPath, nodePath string) {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 	// router.LoadHTMLGlob(TemplPath + "/*.html")
-	router.GET("/api", apiHandler)       // api.go
-	router.GET("/api/dirs/:id", apiDirs) // api.go
+	router.GET("/api", apiHandler)                // api.go
+	router.GET("/api/dirs/ls/:id", apiDirsLs)     // api.go
+	router.GET("/api/dirs/info/:id", apiDirsInfo) // api.go
+	router.GET("/api/file/:id", apiGetFile)       // api.go
 
 	err := router.Run(address)
 	check.IfError(err)

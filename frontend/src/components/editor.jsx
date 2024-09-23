@@ -22,23 +22,16 @@ function Editor() {
   onMount(() => {
     easyMDE = new EasyMDE({
       element: textareaRef,
-      autoDownloadFontAwesome: true, // Prevent auto-downloading fonts
+      autoDownloadFontAwesome: true, 
       lineNumbers: true,
+      showIcons: ["code", "strikethrough", "horizontal-rule"],
     });
 
-    // Listen for changes and update the signal
     easyMDE.codemirror.on("change", () => {
-      setMarkdown(easyMDE.value()); // Update the signal with the editor content
-      console.log("TEXT: ", markdown());
-    });
-
-    // Cleanup when the component unmounts
-    onCleanup(() => {
-      easyMDE.toTextArea();
-      easyMDE = null;
+      setMarkdown(easyMDE.value()); 
+      // console.log("TEXT: ", markdown());
     });
   });
-
 
   return (
     <div class="editor-container">

@@ -1,7 +1,12 @@
+import logo from "../assets/diary.png";
 
 function Header() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary"></nav>
+    <div class="mt-4 mx-4">
+      <a href="/">
+        <img src={logo} style="height: 30px;"></img>
+      </a>
+    </div>
   );
 }
 
