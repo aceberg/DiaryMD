@@ -3,6 +3,16 @@ import EasyMDE from "easymde";
 import "easymde/dist/easymde.min.css";
 import "../App.css";
 
+let easyMDE;
+// Function to update the EasyMDE editor from outside
+export function setEditorValue(newContent) {
+  if (easyMDE) {
+    easyMDE.value(newContent); // Set new content in the EasyMDE editor
+  } else {
+    console.error("EasyMDE instance is not available.");
+  }
+}
+
 function Editor() {
   
   let textareaRef;
@@ -10,7 +20,7 @@ function Editor() {
 
 
   onMount(() => {
-    let easyMDE = new EasyMDE({
+    easyMDE = new EasyMDE({
       element: textareaRef,
       autoDownloadFontAwesome: true, // Prevent auto-downloading fonts
       lineNumbers: true,

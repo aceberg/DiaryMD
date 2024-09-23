@@ -1,11 +1,13 @@
 import folder from '../assets/folder.svg';
 import newfolder from '../assets/folder-plus.svg';
 import newfile from '../assets/file-plus.svg';
+import { setEditorValue } from './editor';
 
 function HomeNew() {
 
   const handleClick = (data) => {
     console.log("Home click", data);
+    setEditorValue("Home click "+data);
   };
 
     return (
