@@ -23,7 +23,7 @@ function HomeNew(props) {
   };
 
   return (
-      <div>
+      <div class='d-flex justify-content-between mx-3'>
         <img src={folder} class='img-mg' title='Home' onClick={[handleHome]}></img>
         <img src={newfolder} class='img-mg' title='New dir' onClick={[handleClick, 'dir']}></img>
         <img src={newfile} class='img-mg' title='New file' onClick={[handleClick, 'file']}></img>

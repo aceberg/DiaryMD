@@ -45,7 +45,9 @@ function Editor() {
 
   return (
     <div>
-      <p>Path: {path()}</p>
+      <div class='file-place'>
+        <button class="btn btn-outline-primary">Path: {path()}</button>
+      </div>
       <div class="editor-container">
         <textarea ref={textareaRef} />
       </div>

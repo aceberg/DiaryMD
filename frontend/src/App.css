@@ -1,9 +1,43 @@
+/* VARS */
+:root {
+  /* Sand theme */
+  --c-sand-lite: #faeddc;
+  --c-sand: #f8e6cc;
+  --c-sand-dark: #dfb377;
+
+  /* Gray theme */
+  /* --c-gray-lite: #b9b9b9;
+  --c-gray: #929292;
+  --c-gray-dark: #696969; */
+
+  --c-main: var(--c-sand);
+  --c-main-light: var(--c-sand-lite);
+  --c-main-dark: var(--c-sand-dark);
+
+  --c-trans-light: #00000015;
+  --c-trans-dark: #00000093;
+  --c-grey-light: #d1caca;
+}
+/* ALL */
+.menu-card, .menu-head {
+  border-width: thin;
+  border-color: var(--c-grey-light);
+  border-style: solid;
+}
+
+/* FILE BTN */
+.file-place {
+  min-height: 50px;
+  align-content: center;
+}
+
+/* MENU */
 .dir,.file,.img-mg {
   cursor: pointer;
 }
 
-.dir:hover,.file:hover,.img-mg:hover {
-  background-color: #00000015;
+.dir:hover,.file:hover {
+  background-color: var(--c-trans-light);
 }
 
 .dir::before {
@@ -16,40 +50,50 @@
   margin-right: 6px;
 }
 
+.menu-head {
+  background-color: var(--c-main-dark);
+  min-height: 50px;
+  align-content: center;
+}
 .menu-card {
-  border-width: thin;
-  border-color: #d1caca;
-  border-style: solid;
-  border-radius: 1%;
-  height: 100%;
+  border-bottom-left-radius: 2%;
+  border-bottom-right-radius: 2%;
+  min-height: 322px;
 }
 
 .img-mg {
-  margin-top: 15px;
-  margin-left: 25px;
+  padding: 6px;
+  /* margin: 5px; */
+}
+.img-mg:hover {
+  border-width: thin;
+  border-color: var(--c-grey-light);
+  border-style: solid;
+  border-radius: 1%;
+  background-color: #ffffff;
 }
 
 #menuUL {
   list-style-type: none;
 }
 
-
+/* EDITOR */
 .CodeMirror {
-  background-color: #faeddc; 
+  background-color: var(--c-main-light);
 }
-.CodeMirror-lines {
+/* .CodeMirror-lines {
   color: #333; 
-}
+} */
 .CodeMirror-linenumber {
-  color: #00000060;
-  background-color: #f8e6cc;
+  color: var(--c-trans-dark);
+  background-color: var(--c-main);
 }
 .CodeMirror-gutters {
-  background-color: #f8e6cc;
+  background-color: var(--c-main);
 }
 .editor-toolbar {
-  background-color: #ebbf83;
+  background-color: var(--c-main-dark);
 }
 .editor-toolbar a {
-  color: #f8e6cc;
+  color: var(--c-main-dark);
 }

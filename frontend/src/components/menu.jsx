@@ -24,12 +24,17 @@ function Menu() {
   
   return (
     <div>
-      <p>Repo</p>
-      <div class="menu-card">
+      <div class='file-place'>
+        <select class='form-select'>
+          <option>Select repo</option>
+        </select>
+      </div>
+      <div class='menu-head'>
         <HomeNew onCommand={handleDir}></HomeNew>
-        <hr></hr>
+      </div>
+      <div class="menu-card">
         <For each={lastDir()}>{(ld) =>
-          <p class='dir mx-3' onClick={[handleDir, ld]}>{ld.Name}</p>
+          <p class='dir mx-3 mt-3' onClick={[handleDir, ld]}>{ld.Name}</p>
         }</For>
         <ul id="menuUL">
         {dirsAndFiles() && dirsAndFiles().length > 0 ? (
