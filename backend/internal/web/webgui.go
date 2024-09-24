@@ -46,6 +46,8 @@ func Gui(dirPath, nodePath string) {
 	router.GET("/api/dirs/info/:id", apiDirsInfo) // api.go
 	router.GET("/api/file/:id", apiGetFile)       // api.go
 
+	router.POST("/api/file", apiFileSave) // api.go
+
 	err := router.Run(address)
 	check.IfError(err)
 }

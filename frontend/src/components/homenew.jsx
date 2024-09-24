@@ -1,7 +1,8 @@
 import folder from '../assets/folder.svg';
 import newfolder from '../assets/folder-plus.svg';
 import newfile from '../assets/file-plus.svg';
-import { setEditorValue } from './editor';
+import save from '../assets/floppy.svg';
+import { saveFileTrigger, setEditorValue } from './editor';
 
 function HomeNew(props) {
 
@@ -16,10 +17,18 @@ function HomeNew(props) {
     setEditorValue('');
   };
 
+  const handleSave = () => {
+    console.log('Save file');
+    saveFileTrigger();
+  };
+
   return (
-      <>
-        <img src={folder} class='img-mg' title='Home' onClick={[handleHome]}></img><img src={newfolder} class='img-mg' title='New dir' onClick={[handleClick, 'dir']}></img><img src={newfile} class='img-mg' title='New file' onClick={[handleClick, 'file']}></img>
-      </>
+      <div>
+        <img src={folder} class='img-mg' title='Home' onClick={[handleHome]}></img>
+        <img src={newfolder} class='img-mg' title='New dir' onClick={[handleClick, 'dir']}></img>
+        <img src={newfile} class='img-mg' title='New file' onClick={[handleClick, 'file']}></img>
+        <img src={save} class='img-mg' title='Save file' onClick={[handleSave, 'save']}></img>
+      </div>
     );
   }
   

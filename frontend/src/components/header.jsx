@@ -1,4 +1,4 @@
-import logo from "../assets/diary.png";
+import logo from "../assets/diary1.png";
 
 function Header() {
   return (

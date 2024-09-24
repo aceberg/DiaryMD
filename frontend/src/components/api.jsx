@@ -25,3 +25,14 @@ export const getFileByID = async (id) => {
 
   return file;
 };
+
+export const saveFileToAPI = async (path, text) => {
+
+  let data = new FormData();
+  data.set('path', path);
+  data.set('text', text);
+
+  let request = new XMLHttpRequest();
+  request.open("POST", api+'/api/file', true);
+  request.send(data);
+};

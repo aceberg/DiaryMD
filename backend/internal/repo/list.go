@@ -2,7 +2,7 @@ package repo
 
 import (
 	"hash/fnv"
-	"log"
+	// "log"
 	"os"
 
 	"github.com/aceberg/DiaryMD/internal/check"
@@ -31,7 +31,7 @@ func List(path string, lastID int) (dirs []models.DirsFiles) {
 
 		dir.ID = int(h.Sum32())
 
-		log.Println(dir.ID, ":", dir.Path)
+		// log.Println(dir.ID, ":", dir.Path)
 
 		dirs = append(dirs, dir)
 	}

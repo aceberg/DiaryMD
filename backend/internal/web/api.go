@@ -65,3 +65,14 @@ func apiGetFile(c *gin.Context) {
 
 	c.IndentedJSON(http.StatusOK, file)
 }
+
+func apiFileSave(c *gin.Context) {
+
+	path := c.PostForm("path")
+	text := c.PostForm("text")
+
+	// log.Println(path, "\n", text)
+	repo.WriteFile(path, text)
+
+	c.IndentedJSON(http.StatusOK, "OK")
+}

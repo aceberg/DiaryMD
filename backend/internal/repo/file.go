@@ -15,3 +15,10 @@ func ReadFile(path string) string {
 
 	return string(file)
 }
+
+// WriteFile - save file
+func WriteFile(path, text string) {
+
+	err := os.WriteFile(path, []byte(text), 0644)
+	check.IfError(err)
+}
