@@ -1,8 +1,9 @@
-import Header from './components/header';
-import Editor from './components/editor';
-import Menu from './components/menu';
+import Header from './components/Header';
+import Left from './components/Left';
+import Right from './components/Right';
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import "aceberg-bootswatch-fork/dist/sand/bootstrap.min.css";
 
 function App() {
   return (
@@ -11,12 +12,8 @@ function App() {
         <Header></Header>
       </div>
       <div class='row mt-4'>
-        <div class='col-3 h-100 d-flex flex-column'>
-          <Menu></Menu>
-        </div>
-        <div class='col-9 h-100 d-flex flex-column'>
-          <Editor></Editor>
-        </div>
+        <Left></Left>
+        <Right></Right>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { createResource, createSignal, For, Show } from 'solid-js';
-import HomeNew from './homenew';
+import NewHomeSave from './NewHomeSave';
 import { setEditorValue } from './editor';
 import { getDirsFromAPI, getDirByID, getFileByID } from './api';
 
@@ -24,13 +24,8 @@ function Menu() {
   
   return (
     <div>
-      <div class='file-place'>
-        <select class='form-select'>
-          <option>Select repo</option>
-        </select>
-      </div>
       <div class='menu-head'>
-        <HomeNew onCommand={handleDir}></HomeNew>
+        <NewHomeSave onCommand={handleDir}></NewHomeSave>
       </div>
       <div class="menu-card">
         <For each={lastDir()}>{(ld) =>

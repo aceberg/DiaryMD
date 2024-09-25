@@ -5,11 +5,6 @@
   --c-sand: #f8e6cc;
   --c-sand-dark: #dfb377;
 
-  /* Gray theme */
-  /* --c-gray-lite: #b9b9b9;
-  --c-gray: #929292;
-  --c-gray-dark: #696969; */
-
   --c-main: var(--c-sand);
   --c-main-light: var(--c-sand-lite);
   --c-main-dark: var(--c-sand-dark);
@@ -19,6 +14,10 @@
   --c-grey-light: #d1caca;
 }
 /* ALL */
+body {
+  --bs-body-bg: var(--c-main);
+}
+
 .menu-card, .menu-head {
   border-width: thin;
   border-color: var(--c-grey-light);

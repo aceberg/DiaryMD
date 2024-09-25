@@ -4,7 +4,7 @@ import newfile from '../assets/file-plus.svg';
 import save from '../assets/floppy.svg';
 import { saveFileTrigger, setEditorValue } from './editor';
 
-function HomeNew(props) {
+function NewHomeSave(props) {
 
   const handleClick = (data) => {
     console.log("Click", data);
@@ -32,4 +32,4 @@ function HomeNew(props) {
     );
   }
   
-  export default HomeNew;
+  export default NewHomeSave;
