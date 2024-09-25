@@ -1,52 +1,48 @@
 import { createResource, createSignal, For, Show } from 'solid-js';
-import NewHomeSave from './NewHomeSave';
-import { setEditorValue } from './editor';
+import { setEditorValue } from './Editor';
 import { getDirsFromAPI, getDirByID, getFileByID } from './api';
+import { currentDir, setCurrentDir, setCurrentFile } from './exports';
 
+export const [menuDirID, setMenuDirID] = createSignal(0);
 
 function Menu() {
 
-  const [dirID, setDirID] = createSignal(0);
-  const [dirsAndFiles] = createResource(dirID, getDirsFromAPI);
-
-  const [lastDir, setLastDir] = createSignal([{ID: 0, Name: '/'}]);
-
-  const handleFile = async (editFile) => {
-    const file = await getFileByID(editFile.ID);
-    setEditorValue(file, editFile.Path);
+  const [dirsAndFiles] = createResource(menuDirID, getDirsFromAPI);
+  
+  const handleFile = async (file) => {
+    const fileText = await getFileByID(file.ID);
+    setCurrentFile(file);
+    setEditorValue(fileText);
   };
 
-  const handleDir = async (newDir) => {
-    setDirID(newDir.ID);
-    const l = await getDirByID(newDir.ID);
-    setLastDir([{ID: l.Parent, Name: l.Name}]);
+  const handleDir = async (dir) => {
+    // console.log('DIR:', dir);
+    setMenuDirID(dir.ID);
+    const cd = await getDirByID(dir.ID);
+    setCurrentDir(cd);
   };
   
   return (
-    <div>
-      <div class='menu-head'>
-        <NewHomeSave onCommand={handleDir}></NewHomeSave>
-      </div>
-      <div class="menu-card">
-        <For each={lastDir()}>{(ld) =>
-          <p class='dir mx-3 mt-3' onClick={[handleDir, ld]}>{ld.Name}</p>
+    <>
+      <For each={[currentDir()]}>{(ld) =>
+        <p class='dir mx-3 mt-3' onClick={[handleDir, {ID: ld.Parent}]}>{ld.Name}</p>
+      }</For>
+
+      <ul id="menuUL">
+      {dirsAndFiles() && dirsAndFiles().length > 0 ? (
+        <For each={dirsAndFiles()}>{(dir) =>
+          <Show
+            when={dir.IsDir}
+            fallback={<li class="file" onClick={[handleFile, dir]}>{dir.Name}</li>}
+          >
+            <li class="dir" onClick={[handleDir, dir]}>{dir.Name}</li>
+          </Show>
         }</For>
-        <ul id="menuUL">
-        {dirsAndFiles() && dirsAndFiles().length > 0 ? (
-          <For each={dirsAndFiles()}>{(dir) =>
-            <Show
-              when={dir.IsDir}
-              fallback={<li class="file" onClick={[handleFile, dir]}>{dir.Name}</li>}
-            >
-              <li class="dir" onClick={[handleDir, dir]}>{dir.Name}</li>
-            </Show>
-          }</For>
-        ) : (
-          <p>...</p>
-        )}
-        </ul>    
-      </div>
-    </div>
+      ) : (
+        <p>...</p>
+      )}
+      </ul>    
+    </>
   );
 }
 

@@ -2,9 +2,11 @@ import folder from '../assets/folder.svg';
 import newfolder from '../assets/folder-plus.svg';
 import newfile from '../assets/file-plus.svg';
 import save from '../assets/floppy.svg';
-import { saveFileTrigger, setEditorValue } from './editor';
+import { saveFile, setEditorValue } from './Editor';
+import { setCurrentDir} from './exports';
+import { setMenuDirID } from './Menu';
 
-function NewHomeSave(props) {
+function NewHomeSave() {
 
   const handleClick = (data) => {
     console.log("Click", data);
@@ -12,14 +14,13 @@ function NewHomeSave(props) {
   };
 
   const handleHome = () => {
-    // console.log("Home click");
-    props.onCommand({ID: 0,});
-    setEditorValue('');
+    setCurrentDir({ID: 0, Name: '/'});
+    setMenuDirID(0);
   };
 
   const handleSave = () => {
     console.log('Save file');
-    saveFileTrigger();
+    saveFile();
   };
 
   return (
