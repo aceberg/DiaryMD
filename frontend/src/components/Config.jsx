@@ -1,8 +1,11 @@
+import { createSignal, onMount } from "solid-js";
+import { getConfig } from "./api";
 
 function Config() {
+
   return (
     <div>
-      This is config
+      <p>Later</p>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 package repo
 
 import (
-	// "log"
+	"log"
 	"os"
 
 	"github.com/aceberg/DiaryMD/internal/check"
@@ -34,5 +34,21 @@ func CreateFile(path string) {
 func CreateDir(path string) {
 
 	err := os.MkdirAll(path, 0774)
+	check.IfError(err)
+}
+
+// Delete - removes file or dir
+func Delete(path string) {
+
+	log.Println("Deleting", path)
+
+	err := os.RemoveAll(path)
+	check.IfError(err)
+}
+
+// Move - rename or move file or dir
+func Move(path, newPath string) {
+
+	err := os.Rename(path, newPath)
 	check.IfError(err)
 }

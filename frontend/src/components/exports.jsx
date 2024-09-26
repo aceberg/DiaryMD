@@ -1,5 +1,4 @@
 import { createSignal } from "solid-js";
-import { getDirByID } from "./api";
 
 export const emptyFile = {
     ID: 0,

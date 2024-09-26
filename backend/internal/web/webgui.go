@@ -47,7 +47,9 @@ func Gui(dirPath, nodePath string) {
 	router.GET("/api/dirs/info/:id", apiDirsInfo) // api.go
 	router.GET("/api/file/:id", apiGetFile)       // api.go
 
+	router.POST("/api/del", apiDelete)       // api.go
 	router.POST("/api/file", apiFileSave)    // api.go
+	router.POST("/api/move", apiMove)        // api.go
 	router.POST("/api/new/file", apiNewFile) // api.go
 	router.POST("/api/new/dir", apiNewDir)   // api.go
 

@@ -63,3 +63,24 @@ export const newDir = async (path) => {
   request.open("POST", api+'/api/new/dir', true);
   request.send(data);
 };
+
+export const deleteFileOrDir = async (path) => {
+
+  let data = new FormData();
+  data.set('path', path);
+
+  let request = new XMLHttpRequest();
+  request.open("POST", api+'/api/del', true);
+  request.send(data);
+};
+
+export const renameFileOrDir = async (path, newPath) => {
+
+  let data = new FormData();
+  data.set('path', path);
+  data.set('newpath', newPath);
+
+  let request = new XMLHttpRequest();
+  request.open("POST", api+'/api/move', true);
+  request.send(data);
+};

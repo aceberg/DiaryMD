@@ -98,3 +98,21 @@ func apiNewDir(c *gin.Context) {
 
 	c.IndentedJSON(http.StatusOK, "OK")
 }
+
+func apiDelete(c *gin.Context) {
+
+	path := c.PostForm("path")
+	repo.Delete(path)
+
+	c.IndentedJSON(http.StatusOK, "OK")
+}
+
+func apiMove(c *gin.Context) {
+
+	path := c.PostForm("path")
+	newPath := c.PostForm("newpath")
+
+	repo.Move(path, newPath)
+
+	c.IndentedJSON(http.StatusOK, "OK")
+}
