@@ -19,6 +19,11 @@ func apiHandler(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, msg)
 }
 
+func apiGetConfig(c *gin.Context) {
+
+	c.IndentedJSON(http.StatusOK, appConfig)
+}
+
 func apiDirsLs(c *gin.Context) {
 	var curDirs []models.DirsFiles
 
@@ -45,7 +50,8 @@ func apiDirsInfo(c *gin.Context) {
 
 	if id == 0 {
 		dir.ID = 0
-		dir.Name = "/"
+		dir.Name = ""
+		dir.Path = appConfig.RepoPath
 		dir.IsDir = true
 		dir.Parent = 0
 	} else {
@@ -73,6 +79,22 @@ func apiFileSave(c *gin.Context) {
 
 	// log.Println(path, "\n", text)
 	repo.WriteFile(path, text)
+
+	c.IndentedJSON(http.StatusOK, "OK")
+}
+
+func apiNewFile(c *gin.Context) {
+
+	path := c.PostForm("path")
+	repo.CreateFile(path)
+
+	c.IndentedJSON(http.StatusOK, "OK")
+}
+
+func apiNewDir(c *gin.Context) {
+
+	path := c.PostForm("path")
+	repo.CreateDir(path)
 
 	c.IndentedJSON(http.StatusOK, "OK")
 }

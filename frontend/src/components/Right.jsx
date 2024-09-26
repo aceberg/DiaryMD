@@ -1,10 +1,10 @@
 import Editor from './Editor';
-import PathBtn from "./PathBtn";
+import Tabs from "./Tabs";
 
 function Right() {
   return (
     <div class='col-9 h-100 d-flex flex-column'>
-      <PathBtn></PathBtn>
+      <Tabs></Tabs>
       <Editor></Editor>
     </div>
   );

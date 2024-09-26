@@ -18,6 +18,11 @@ body {
   --bs-body-bg: var(--c-main);
 }
 
+.shade-hover:hover {
+  background-color: var(--c-trans-light);
+  cursor: pointer;
+}
+
 .menu-card, .menu-head {
   border-width: thin;
   border-color: var(--c-grey-light);
@@ -53,6 +58,8 @@ body {
   background-color: var(--c-main-dark);
   min-height: 50px;
   align-content: center;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
 }
 .menu-card {
   border-bottom-left-radius: 2%;
@@ -68,7 +75,7 @@ body {
   border-width: thin;
   border-color: var(--c-grey-light);
   border-style: solid;
-  border-radius: 1%;
+  border-radius: 15%;
   background-color: #ffffff;
 }
 
@@ -77,6 +84,27 @@ body {
 }
 
 /* EDITOR */
+.tab {
+  background-color: var(--c-main-light);
+  border-width: thin;
+  border-color: var(--c-grey-light);
+  border-style: solid;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  min-height: 40px;
+  align-content: center;
+}
+.tab:hover {
+  background-color: var(--c-trans-light);
+}
+
+.tab-close {
+  margin: 10px;
+}
+.tab-close:hover {
+  background-color: var(--c-trans-dark);
+}
+
 .CodeMirror {
   background-color: var(--c-main-light);
 }

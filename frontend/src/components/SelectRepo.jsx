@@ -2,9 +2,7 @@
 function SelectRepo() {
   return (
     <div class='file-place'>
-        <select class='form-select'>
-          <option>Select repo</option>
-        </select>
+      <input class="form-control" placeholder="Search"></input>
     </div>
   );
 }

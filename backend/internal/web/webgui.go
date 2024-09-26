@@ -42,11 +42,14 @@ func Gui(dirPath, nodePath string) {
 	router := gin.Default()
 	// router.LoadHTMLGlob(TemplPath + "/*.html")
 	router.GET("/api", apiHandler)                // api.go
+	router.GET("/api/config", apiGetConfig)       // api.go
 	router.GET("/api/dirs/ls/:id", apiDirsLs)     // api.go
 	router.GET("/api/dirs/info/:id", apiDirsInfo) // api.go
 	router.GET("/api/file/:id", apiGetFile)       // api.go
 
-	router.POST("/api/file", apiFileSave) // api.go
+	router.POST("/api/file", apiFileSave)    // api.go
+	router.POST("/api/new/file", apiNewFile) // api.go
+	router.POST("/api/new/dir", apiNewDir)   // api.go
 
 	err := router.Run(address)
 	check.IfError(err)

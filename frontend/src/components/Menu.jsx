@@ -2,6 +2,7 @@ import { createResource, createSignal, For, Show } from 'solid-js';
 import { setEditorValue } from './Editor';
 import { getDirsFromAPI, getDirByID, getFileByID } from './api';
 import { currentDir, setCurrentDir, setCurrentFile } from './exports';
+import MenuEdit from './MenuEdit';
 
 export const [menuDirID, setMenuDirID] = createSignal(0);
 
@@ -23,7 +24,7 @@ function Menu() {
   };
   
   return (
-    <>
+    <div>
       <For each={[currentDir()]}>{(ld) =>
         <p class='dir mx-3 mt-3' onClick={[handleDir, {ID: ld.Parent}]}>{ld.Name}</p>
       }</For>
@@ -33,16 +34,22 @@ function Menu() {
         <For each={dirsAndFiles()}>{(dir) =>
           <Show
             when={dir.IsDir}
-            fallback={<li class="file" onClick={[handleFile, dir]}>{dir.Name}</li>}
+            fallback={<li class="file d-flex flex-wrap">
+              <div class='flex-grow-1' onClick={[handleFile, dir]}>{dir.Name}</div>
+              <MenuEdit data={dir}></MenuEdit>
+            </li>}
           >
-            <li class="dir" onClick={[handleDir, dir]}>{dir.Name}</li>
+            <li class="dir d-flex flex-wrap">
+            <div class='flex-grow-1' onClick={[handleDir, dir]}>{dir.Name}</div>
+              <MenuEdit data={dir}></MenuEdit>
+            </li>
           </Show>
         }</For>
       ) : (
         <p>...</p>
       )}
       </ul>    
-    </>
+    </div>
   );
 }
 
