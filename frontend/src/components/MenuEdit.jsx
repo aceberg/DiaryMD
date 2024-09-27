@@ -1,28 +1,31 @@
 import "bootstrap/js/dist/modal";
 import menu from '../assets/menu.svg';
 import { deleteFileOrDir, renameFileOrDir } from "./api";
+import { currentDir, setCurrentMenu} from './exports';
+import { getDirsFromAPI } from "./api";
 
 function MenuEdit(props) {
 
   const targetID = '#modal-'+props.data.ID;
   const modalID = 'modal-'+props.data.ID;
   const pathID = 'path-'+props.data.ID;
-  // console.log("MODAL:", target, modalID);
 
   const handleEdit = (dir) => {
     console.log('Edit:', dir);
   };
 
-  const handleDelete = (dir) => {
+  const handleDelete = async (dir) => {
     console.log('Delete:', dir);
-    deleteFileOrDir(dir.Path);
+    await deleteFileOrDir(dir.Path);
+    setCurrentMenu(await getDirsFromAPI(currentDir().ID));
   };
 
-  const handleSave = (dir) => {
+  const handleSave = async (dir) => {
     console.log('Save:', dir);
     const pathVal = document.getElementById(pathID).value;
     console.log('New path: ', pathVal);
-    renameFileOrDir(dir.Path, pathVal);
+    await renameFileOrDir(dir.Path, pathVal);
+    setCurrentMenu(await getDirsFromAPI(currentDir().ID));
   };
 
   return (
@@ -42,7 +45,7 @@ function MenuEdit(props) {
             </div>
             <div class="modal-footer d-flex justify-content-between">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onClick={[handleDelete, props.data]}>Delete</button>
-              <button type="button" class="btn btn-primary" onClick={[handleSave, props.data]}>Save</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={[handleSave, props.data]}>Save</button>
             </div>
           </div>
         </div>

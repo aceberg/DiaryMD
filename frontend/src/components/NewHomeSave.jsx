@@ -3,35 +3,46 @@ import newfolder from '../assets/folder-plus.svg';
 import newfile from '../assets/file-plus.svg';
 import save from '../assets/floppy.svg';
 import { saveFile } from './Editor';
-import { currentDir, setCurrentDir} from './exports';
-import { setMenuDirID } from './Menu';
-import { getDirByID, newFile, newDir } from './api';
+import { currentDir, currentFile, setCurrentDir, setCurrentFile, setCurrentMenu} from './exports';
+import { getDirByID, newFile, newDir, getDirsFromAPI } from './api';
 
 function NewHomeSave() {
 
-  const handleDir = () => {
+  const handleDir = async () => {
     const path = currentDir().Path+'/NewDir';
     console.log("New dir path: ", path);
     newDir(path);
-    setMenuDirID(currentDir().ID);
+    setCurrentMenu(await getDirsFromAPI(currentDir().ID));
   };
 
-  const handleFile = () => {
+  const handleFile = async () => {
     const path = currentDir().Path+'/NewFile';
     console.log("New file path: ", path);
     newFile(path);
-    // setMenuDirID(0);
-    // setMenuDirID(currentDir().ID);
+    setCurrentMenu(await getDirsFromAPI(currentDir().ID));
   };
 
   const handleHome = async () => {
     setCurrentDir(await getDirByID(0));
     console.log("Home clicked", currentDir());
-    setMenuDirID(0);
+    setCurrentMenu(await getDirsFromAPI(0));
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     console.log('Save file');
+    if (currentFile().Path == '') {
+      const path = currentDir().Path+'/NewFile';
+      console.log("New file path: ", path);
+      newFile(path);
+      setCurrentFile({
+        ID: 0,
+        Name: '',
+        Path: path,
+        IsDir: false,
+        Parent: 0,
+      });
+      setCurrentMenu(await getDirsFromAPI(currentDir().ID));
+    }
     saveFile();
   };
 

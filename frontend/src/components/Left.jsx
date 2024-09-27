@@ -1,13 +1,14 @@
 import Menu from './Menu';
 import SelectRepo from './SelectRepo';
 import NewHomeSave from './NewHomeSave';
-import { getDirByID } from './api';
-import { setCurrentDir} from './exports';
+import { getDirByID, getDirsFromAPI } from './api';
+import { setCurrentDir, setCurrentMenu} from './exports';
 
 function Left() {  
 
   const setAtStart = async () => {
     setCurrentDir(await getDirByID(0));
+    setCurrentMenu(await getDirsFromAPI(0));
   };
 
   setAtStart();

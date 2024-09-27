@@ -1,15 +1,11 @@
-import { createResource, createSignal, For, Show } from 'solid-js';
+import { For, Show } from 'solid-js';
 import { setEditorValue } from './Editor';
 import { getDirsFromAPI, getDirByID, getFileByID } from './api';
-import { currentDir, setCurrentDir, setCurrentFile } from './exports';
+import { currentDir, currentMenu, setCurrentDir, setCurrentFile, setCurrentMenu } from './exports';
 import MenuEdit from './MenuEdit';
-
-export const [menuDirID, setMenuDirID] = createSignal(0);
 
 function Menu() {
 
-  const [dirsAndFiles] = createResource(menuDirID, getDirsFromAPI);
-  
   const handleFile = async (file) => {
     const fileText = await getFileByID(file.ID);
     setCurrentFile(file);
@@ -17,8 +13,7 @@ function Menu() {
   };
 
   const handleDir = async (dir) => {
-    // console.log('DIR:', dir);
-    setMenuDirID(dir.ID);
+    setCurrentMenu(await getDirsFromAPI(dir.ID));
     const cd = await getDirByID(dir.ID);
     setCurrentDir(cd);
   };
@@ -30,8 +25,8 @@ function Menu() {
       }</For>
 
       <ul id="menuUL">
-      {dirsAndFiles() && dirsAndFiles().length > 0 ? (
-        <For each={dirsAndFiles()}>{(dir) =>
+      {currentMenu() && currentMenu().length > 0 ? (
+        <For each={currentMenu()}>{(dir) =>
           <Show
             when={dir.IsDir}
             fallback={<li class="file d-flex flex-wrap">

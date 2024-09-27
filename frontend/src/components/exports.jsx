@@ -19,3 +19,5 @@ export const emptyDir = {
 export const [currentFile, setCurrentFile] = createSignal(emptyFile);
 
 export const [currentDir, setCurrentDir] = createSignal(emptyDir);
+
+export const [currentMenu, setCurrentMenu] = createSignal([]);
