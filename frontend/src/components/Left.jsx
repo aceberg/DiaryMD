@@ -1,12 +1,13 @@
 import Menu from './Menu';
-import SelectRepo from './SelectRepo';
+import Search from './Search';
 import NewHomeSave from './NewHomeSave';
-import { getDirByID, getDirsFromAPI } from './api';
-import { setCurrentDir, setCurrentMenu} from './exports';
+import { getConfig, getDirByID, getDirsFromAPI } from './api';
+import { setCurrentConfig, setCurrentDir, setCurrentMenu} from './exports';
 
 function Left() {  
 
   const setAtStart = async () => {
+    setCurrentConfig(await getConfig());
     setCurrentDir(await getDirByID(0));
     setCurrentMenu(await getDirsFromAPI(0));
   };
@@ -15,7 +16,7 @@ function Left() {
 
   return (
     <div class='col-3 h-100 d-flex flex-column'>
-      <SelectRepo></SelectRepo>
+      <Search></Search>
       <div class='menu-head'>
         <NewHomeSave></NewHomeSave>
       </div>

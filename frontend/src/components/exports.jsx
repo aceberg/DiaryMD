@@ -16,8 +16,14 @@ export const emptyDir = {
     Parent: 0,
 };
 
+const emptyConf = {
+    RepoPath: '',
+};
+
 export const [currentFile, setCurrentFile] = createSignal(emptyFile);
 
 export const [currentDir, setCurrentDir] = createSignal(emptyDir);
 
 export const [currentMenu, setCurrentMenu] = createSignal([]);
+
+export const [currentConfig, setCurrentConfig] = createSignal(emptyConf);
