@@ -1,8 +1,10 @@
 package web
 
 import (
+	"embed"
+	"html/template"
 	"log"
-	// "net/http"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 
@@ -14,6 +16,14 @@ import (
 var (
 	appConfig models.Conf
 	allDirs   []models.DirsFiles
+
+	// pubFS - public folder
+	//
+	//go:embed dist/assets/*
+	assetsFS embed.FS
+
+	//go:embed dist/index.html
+	templFS embed.FS
 )
 
 // Gui - start web server
@@ -40,12 +50,19 @@ func Gui(dirPath, nodePath string) {
 
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
-	// router.LoadHTMLGlob(TemplPath + "/*.html")
+
+	templ := template.Must(template.New("").ParseFS(templFS, "dist/index.html"))
+	router.SetHTMLTemplate(templ) // templates
+
+	router.GET("/", indexHandler) // index.go
+	router.StaticFS("/assets", http.FS(assetsFS))
+
 	router.GET("/api", apiHandler)                // api.go
 	router.GET("/api/config", apiGetConfig)       // api.go
 	router.GET("/api/dirs/ls/:id", apiDirsLs)     // api.go
 	router.GET("/api/dirs/info/:id", apiDirsInfo) // api.go
 	router.GET("/api/file/:id", apiGetFile)       // api.go
+	router.GET("/api/search/:id/:str", apiSearch) // api.go
 
 	router.POST("/api/del", apiDelete)       // api.go
 	router.POST("/api/file", apiFileSave)    // api.go

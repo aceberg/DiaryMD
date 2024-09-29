@@ -3,7 +3,6 @@ package web
 import (
 	"log"
 	"net/http"
-	"strconv"
 
 	"github.com/gin-gonic/gin"
 
@@ -28,14 +27,14 @@ func apiDirsLs(c *gin.Context) {
 	var curDirs []models.DirsFiles
 
 	idStr := c.Param("id")
-	id, _ := strconv.Atoi(idStr)
 
-	if id == 0 {
+	// TODO: potential problem here (map instead of slice?)
+	if idStr == "0" {
 		allDirs = repo.List(appConfig.RepoPath, 0)
 		curDirs = allDirs
 	} else {
-		d := getDirByID(allDirs, id)
-		curDirs = repo.List(d.Path, id)
+		d := getDirByID(allDirs, idStr)
+		curDirs = repo.List(d.Path, d.ID)
 		allDirs = append(allDirs, curDirs...)
 	}
 
@@ -46,17 +45,8 @@ func apiDirsInfo(c *gin.Context) {
 	var dir models.DirsFiles
 
 	idStr := c.Param("id")
-	id, _ := strconv.Atoi(idStr)
 
-	if id == 0 {
-		dir.ID = 0
-		dir.Name = ""
-		dir.Path = appConfig.RepoPath
-		dir.IsDir = true
-		dir.Parent = 0
-	} else {
-		dir = getDirByID(allDirs, id)
-	}
+	dir = getDirByID(allDirs, idStr)
 
 	c.IndentedJSON(http.StatusOK, dir)
 }
@@ -64,9 +54,8 @@ func apiDirsInfo(c *gin.Context) {
 func apiGetFile(c *gin.Context) {
 
 	idStr := c.Param("id")
-	id, _ := strconv.Atoi(idStr)
 
-	f := getDirByID(allDirs, id)
+	f := getDirByID(allDirs, idStr)
 	file := repo.ReadFile(f.Path)
 
 	c.IndentedJSON(http.StatusOK, file)
@@ -115,4 +104,17 @@ func apiMove(c *gin.Context) {
 	repo.Move(path, newPath)
 
 	c.IndentedJSON(http.StatusOK, "OK")
+}
+
+func apiSearch(c *gin.Context) {
+
+	idStr := c.Param("id")
+	str := c.Param("str")
+
+	d := getDirByID(allDirs, idStr)
+	dirs := repo.Search(d.Path, str)
+
+	// log.Println("ID, str, d", idStr, str, d)
+
+	c.IndentedJSON(http.StatusOK, dirs)
 }

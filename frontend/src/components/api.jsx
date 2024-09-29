@@ -84,3 +84,11 @@ export const renameFileOrDir = async (path, newPath) => {
   request.open("POST", api+'/api/move', true);
   request.send(data);
 };
+
+export const apiSearch = async (id, str) => {
+
+  const url = api+'/api/search/'+id+'/'+str;
+  const dirs = await (await fetch(url)).json();
+
+  return dirs;
+};

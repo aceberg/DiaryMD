@@ -2,7 +2,6 @@ package repo
 
 import (
 	"hash/fnv"
-	// "log"
 	"os"
 
 	"github.com/aceberg/DiaryMD/internal/check"
@@ -21,20 +20,24 @@ func List(path string, lastID int) (dirs []models.DirsFiles) {
 
 	for _, v := range files {
 
-		dir.Name = v.Name()
-		dir.IsDir = v.IsDir()
-		dir.Path = path + "/" + dir.Name
+		dir = formDir(v, path)
 		dir.Parent = lastID
-
-		h := fnv.New32a()
-		h.Write([]byte(dir.Path))
-
-		dir.ID = int(h.Sum32())
-
-		// log.Println(dir.ID, ":", dir.Path)
-
 		dirs = append(dirs, dir)
 	}
 
 	return dirs
+}
+
+func formDir(file os.FileInfo, path string) (dir models.DirsFiles) {
+
+	dir.Name = file.Name()
+	dir.IsDir = file.IsDir()
+	dir.Path = path + "/" + dir.Name
+
+	h := fnv.New32a()
+	h.Write([]byte(dir.Path))
+
+	dir.ID = int(h.Sum32())
+
+	return dir
 }
