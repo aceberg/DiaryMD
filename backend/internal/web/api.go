@@ -114,6 +114,8 @@ func apiSearch(c *gin.Context) {
 	d := getDirByID(allDirs, idStr)
 	dirs := repo.Search(d.Path, str)
 
+	allDirs = append(allDirs, dirs...)
+
 	// log.Println("ID, str, d", idStr, str, d)
 
 	c.IndentedJSON(http.StatusOK, dirs)

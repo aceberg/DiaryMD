@@ -1,7 +1,7 @@
 package repo
 
 import (
-	"log"
+	// "log"
 	"os"
 	"strings"
 
@@ -15,7 +15,7 @@ func Search(path, searchStr string) []models.DirsFiles {
 	foundFiles = []models.DirsFiles{}
 
 	recursSearch(path, searchStr)
-	log.Println("Search:", foundFiles)
+	// log.Println("Search:", foundFiles)
 
 	return foundFiles
 }

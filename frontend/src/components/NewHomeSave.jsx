@@ -48,7 +48,8 @@ function NewHomeSave() {
 
   return (
       <div class='d-flex justify-content-between mx-3'>
-        <img src={folder} class='img-mg' title='Home' onClick={[handleHome]}></img>
+        {/* <img src={folder} class='img-mg' title='Home' onClick={[handleHome]}></img> */}
+        <i class='img-mg icon-home' title='Home' onClick={[handleHome]}></i>
         <img src={newfolder} class='img-mg' title='New dir' onClick={[handleDir]}></img>
         <img src={newfile} class='img-mg' title='New file' onClick={[handleFile]}></img>
         <img src={save} class='img-mg' title='Save file' onClick={[handleSave]}></img>

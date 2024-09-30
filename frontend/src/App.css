@@ -17,6 +17,27 @@
 body {
   --bs-body-bg: var(--c-main);
 }
+.btn-primary {
+  background-color: var(--c-main-dark);
+}
+
+.icon-home {
+  content: url('./assets/folder.svg');
+  color: cyan;
+}
+.icon-new-file {
+  content: url('./assets/file-plus.svg');
+}
+.icon-new-dir {
+  content: url('./assets/folder-plus.svg');
+}
+.icon-save {
+  content: url('./assets/floppy.svg');
+}
+.icon-gear {
+  content: url('./assets/gear.svg');
+}
+
 
 .shade-hover:hover {
   background-color: var(--c-trans-light);

@@ -1,28 +1,20 @@
-import { currentConfig } from "./exports";
+import gear from "../assets/gear.svg";
+import "bootstrap/js/dist/modal";
 
 function Config() {
 
-  const handleSave = async () => {
-    const path = document.getElementById("path").value;
-    console.log("Path:", path);
-  };
-
   return (
-    <div>
-      <div class="form-floating">
-        <input id="theme" class="form-control mt-2" placeholder="Theme" value={currentConfig().Theme}></input>
-        <label for="theme">Theme</label>
+    <>
+      <div class="dropdown">
+        
+        <img src={gear} class="shade-hover dropdown-toggle" data-bs-toggle="dropdown" style="height: 25px;" title="Settings"></img> 
+        
+        <ul class="dropdown-menu">
+          <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#themeModal">Theme</a></li>
+          <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#configModal">Settings</a></li>
+        </ul>
       </div>
-      <div class="form-floating">
-        <input id="color" class="form-control mt-2" placeholder="Color" value={currentConfig().Color}></input>
-        <label for="theme">Theme</label>
-      </div>
-      <div class="form-floating">
-        <input class="form-control mt-2" id="path" value={currentConfig().RepoPath} placeholder="Path to repo"></input>
-        <label for="path">Path to repo</label>
-      </div>
-      <button class="btn btn-primary mt-2" onClick={handleSave}>Save</button>
-    </div>
+    </>
   );
 }
 

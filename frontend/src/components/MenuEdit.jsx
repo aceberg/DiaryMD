@@ -1,4 +1,3 @@
-import "bootstrap/js/dist/modal";
 import menu from '../assets/menu.svg';
 import { deleteFileOrDir, renameFileOrDir } from "./api";
 import { currentDir, setCurrentMenu} from './exports';
