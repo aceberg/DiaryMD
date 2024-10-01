@@ -8,6 +8,7 @@
   --c-main: var(--c-sand);
   --c-main-light: var(--c-sand-lite);
   --c-main-dark: var(--c-sand-dark);
+  --c-main-font: black;
 
   --c-trans-light: #00000015;
   --c-trans-dark: #00000093;
@@ -16,10 +17,12 @@
 /* ALL */
 body {
   --bs-body-bg: var(--c-main);
+  --bs-primary: var(--c-main-dark);
+  --bs-blue: var(--c-main-dark);
 }
-.btn-primary {
+/* .btn-primary {
   background-color: var(--c-main-dark);
-}
+} */
 
 .icon-home {
   content: url('./assets/folder.svg');
@@ -105,7 +108,7 @@ body {
 }
 
 /* EDITOR */
-.tab {
+/* .tab {
   background-color: var(--c-main-light);
   border-width: thin;
   border-color: var(--c-grey-light);
@@ -132,7 +135,7 @@ body {
 /* .CodeMirror-lines {
   color: #333; 
 } */
-.CodeMirror-linenumber {
+/* .CodeMirror-linenumber {
   color: var(--c-trans-dark);
   background-color: var(--c-main);
 }
@@ -144,4 +147,4 @@ body {
 }
 .editor-toolbar a {
   color: var(--c-main-dark);
-}
+} */

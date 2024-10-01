@@ -1,0 +1,52 @@
+/* EDITOR */
+.tab {
+  background-color: var(--c-main-light);
+  border-width: thin;
+  border-color: var(--c-grey-light);
+  border-style: solid;
+  border-top-left-radius: 10%;
+  border-top-right-radius: 10%;
+  min-height: 40px;
+  align-content: center;
+}
+.tab:hover {
+  background-color: var(--c-trans-light);
+}
+
+.tab-close {
+  margin: 10px;
+}
+.tab-close:hover {
+  background-color: var(--c-trans-dark);
+}
+
+.CodeMirror {
+  background-color: var(--c-main-light);
+}
+.EasyMDEContainer .CodeMirror-fullscreen {
+  background-color: var(--c-main-light);
+  color: var(--c-main-font); 
+}
+/* .CodeMirror-fullscreen {
+  color: var(--c-main-font); 
+} */
+.CodeMirror-linenumber {
+  color: var(--c-trans-dark);
+  background-color: var(--c-main);
+}
+.CodeMirror-gutters {
+  background-color: var(--c-main);
+}
+.editor-toolbar {
+  background-color: var(--c-main-dark);
+}
+.editor-toolbar.fullscreen {
+  background-color: var(--c-main-dark);
+}
+.editor-toolbar a {
+  color: var(--c-main-dark);
+}
+.editor-preview-full, .editor-preview-side {
+  background-color: var(--c-main-light);
+}
+

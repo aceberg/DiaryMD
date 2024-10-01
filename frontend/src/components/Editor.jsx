@@ -2,7 +2,7 @@ import { createSignal, onMount } from "solid-js";
 import EasyMDE from "easymde";
 import { saveFileToAPI } from "./api";
 import "easymde/dist/easymde.min.css";
-import "../App.css";
+import "./Editor.css";
 import { currentFile } from "./exports";
 
 let easyMDE;
