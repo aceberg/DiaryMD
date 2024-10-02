@@ -1,6 +1,5 @@
 import { currentFile, setCurrentFile, emptyFile } from "./exports";
 import { setEditorValue } from './Editor';
-import circle from '../assets/x.svg';
 
 function Tabs() {
 
@@ -14,7 +13,7 @@ function Tabs() {
     <div class='file-place'>
       <button class="tab" title={currentFile().Path}>
         <span class="mx-3">{currentFile().Name}</span>
-        <img src={circle} class="tab-close" title='Close' onClick={[handleClose, '']}></img>
+        <i class="bi bi-x tab-close" title='Close' onClick={[handleClose, '']}></i>
       </button>
     </div>
   );

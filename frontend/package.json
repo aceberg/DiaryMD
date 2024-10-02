@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "easymde": "^2.18.0",
     "solid-js": "^1.8.11"
   }

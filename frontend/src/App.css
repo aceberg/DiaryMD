@@ -13,32 +13,26 @@
   --c-trans-light: #00000015;
   --c-trans-dark: #00000093;
   --c-grey-light: #d1caca;
+
+  --bs-primary: var(--c-main-dark);
 }
 /* ALL */
 body {
   --bs-body-bg: var(--c-main);
-  --bs-primary: var(--c-main-dark);
-  --bs-blue: var(--c-main-dark);
 }
-/* .btn-primary {
-  background-color: var(--c-main-dark);
-} */
 
-.icon-home {
-  content: url('./assets/folder.svg');
-  color: cyan;
+/* BOOTSTRAP */
+.btn-primary, .dropdown-link-hover-bg, .dropdown-link-active-bg {
+  background-color: var(--c-main-dark);
+  border-color: var(--c-main-dark);
 }
-.icon-new-file {
-  content: url('./assets/file-plus.svg');
+.btn-primary:hover {
+  background-color: var(--c-trans-dark);
+  border-color: #00000000;
 }
-.icon-new-dir {
-  content: url('./assets/folder-plus.svg');
-}
-.icon-save {
-  content: url('./assets/floppy.svg');
-}
-.icon-gear {
-  content: url('./assets/gear.svg');
+.form-control:focus {
+  border-color: var(--c-grey-light);
+  box-shadow: 0 0 10px var(--c-main-dark);
 }
 
 
@@ -60,22 +54,11 @@ body {
 }
 
 /* MENU */
-.dir,.file,.img-mg {
+.dir, .img-mg {
   cursor: pointer;
 }
-
-.dir:hover,.file:hover {
+.dir:hover {
   background-color: var(--c-trans-light);
-}
-
-.dir::before {
-  content: url('./assets/folder.svg'); 
-  margin-right: 6px;
-}
-
-.file::before {
-  content: url('./assets/file.svg'); 
-  margin-right: 6px;
 }
 
 .menu-head {
@@ -106,45 +89,3 @@ body {
 #menuUL {
   list-style-type: none;
 }
-
-/* EDITOR */
-/* .tab {
-  background-color: var(--c-main-light);
-  border-width: thin;
-  border-color: var(--c-grey-light);
-  border-style: solid;
-  border-top-left-radius: 10%;
-  border-top-right-radius: 10%;
-  min-height: 40px;
-  align-content: center;
-}
-.tab:hover {
-  background-color: var(--c-trans-light);
-}
-
-.tab-close {
-  margin: 10px;
-}
-.tab-close:hover {
-  background-color: var(--c-trans-dark);
-}
-
-.CodeMirror {
-  background-color: var(--c-main-light);
-}
-/* .CodeMirror-lines {
-  color: #333; 
-} */
-/* .CodeMirror-linenumber {
-  color: var(--c-trans-dark);
-  background-color: var(--c-main);
-}
-.CodeMirror-gutters {
-  background-color: var(--c-main);
-}
-.editor-toolbar {
-  background-color: var(--c-main-dark);
-}
-.editor-toolbar a {
-  color: var(--c-main-dark);
-} */

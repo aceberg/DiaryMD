@@ -3,6 +3,7 @@ import Left from './components/Left';
 import Right from './components/Right';
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.min.css";
 import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/modal";
 import "easymde/dist/easymde.min.css";

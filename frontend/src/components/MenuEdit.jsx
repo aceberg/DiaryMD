@@ -1,4 +1,3 @@
-import menu from '../assets/menu.svg';
 import { deleteFileOrDir, renameFileOrDir } from "./api";
 import { currentDir, setCurrentMenu} from './exports';
 import { getDirsFromAPI } from "./api";
@@ -29,7 +28,7 @@ function MenuEdit(props) {
 
   return (
     <>
-      <img src={menu} onClick={[handleEdit, props.data]} data-bs-toggle="modal" data-bs-target={targetID} class="shade-hover float-end mx-2 p-1"></img>
+      <i onClick={[handleEdit, props.data]} data-bs-toggle="modal" data-bs-target={targetID} class="bi bi-three-dots-vertical shade-hover float-end mx-2 p-1"></i>
 
       {/* MODAL */}
       <div class="modal fade" id={modalID} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

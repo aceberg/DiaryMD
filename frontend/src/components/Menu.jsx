@@ -21,7 +21,9 @@ function Menu() {
   return (
     <div>
       <For each={[currentDir()]}>{(ld) =>
-        <p class='dir mx-3 mt-3' onClick={[handleDir, {ID: ld.Parent}]}>{ld.Name}</p>
+        <p class='dir mx-3 mt-3' onClick={[handleDir, {ID: ld.Parent}]}>
+          <i class="bi bi-folder"></i>   {ld.Name}
+        </p>
       }</For>
 
       <ul id="menuUL">
@@ -29,13 +31,17 @@ function Menu() {
         <For each={currentMenu()}>{(dir) =>
           <Show
             when={dir.IsDir}
-            fallback={<li class="file d-flex flex-wrap">
-              <div class='flex-grow-1' onClick={[handleFile, dir]}>{dir.Name}</div>
+            fallback={<li class="dir d-flex flex-wrap">
+              <div class='flex-grow-1' onClick={[handleFile, dir]}>
+                <i class="bi bi-file-earmark-text"></i>   {dir.Name}
+              </div>
               <MenuEdit data={dir}></MenuEdit>
             </li>}
           >
             <li class="dir d-flex flex-wrap">
-            <div class='flex-grow-1' onClick={[handleDir, dir]}>{dir.Name}</div>
+            <div class='flex-grow-1' onClick={[handleDir, dir]}>
+              <i class="bi bi-folder"></i>   {dir.Name}
+            </div>
               <MenuEdit data={dir}></MenuEdit>
             </li>
           </Show>

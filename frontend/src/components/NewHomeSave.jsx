@@ -1,7 +1,3 @@
-import folder from '../assets/folder.svg';
-import newfolder from '../assets/folder-plus.svg';
-import newfile from '../assets/file-plus.svg';
-import save from '../assets/floppy.svg';
 import { saveFile } from './Editor';
 import { currentDir, currentFile, setCurrentDir, setCurrentFile, setCurrentMenu} from './exports';
 import { getDirByID, newFile, newDir, getDirsFromAPI } from './api';
@@ -48,11 +44,10 @@ function NewHomeSave() {
 
   return (
       <div class='d-flex justify-content-between mx-3'>
-        {/* <img src={folder} class='img-mg' title='Home' onClick={[handleHome]}></img> */}
-        <i class='img-mg icon-home' title='Home' onClick={[handleHome]}></i>
-        <img src={newfolder} class='img-mg' title='New dir' onClick={[handleDir]}></img>
-        <img src={newfile} class='img-mg' title='New file' onClick={[handleFile]}></img>
-        <img src={save} class='img-mg' title='Save file' onClick={[handleSave]}></img>
+        <i class="bi bi-folder img-mg" title='Home' onClick={[handleHome]}></i>
+        <i class="bi bi-folder-plus img-mg" title='Home' onClick={[handleDir]}></i>
+        <i class="bi bi-file-earmark-plus img-mg" title='Home' onClick={[handleFile]}></i>
+        <i class="bi bi-floppy img-mg" title='Home' onClick={[handleSave]}></i>
       </div>
     );
   }

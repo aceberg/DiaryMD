@@ -1,4 +1,4 @@
-/* EDITOR */
+/* TABS */
 .tab {
   background-color: var(--c-main-light);
   border-width: thin;
@@ -20,16 +20,15 @@
   background-color: var(--c-trans-dark);
 }
 
-.CodeMirror {
+/* EDITOR */
+.CodeMirror, .editor-preview-full, .editor-preview-side {
   background-color: var(--c-main-light);
 }
 .EasyMDEContainer .CodeMirror-fullscreen {
   background-color: var(--c-main-light);
   color: var(--c-main-font); 
 }
-/* .CodeMirror-fullscreen {
-  color: var(--c-main-font); 
-} */
+
 .CodeMirror-linenumber {
   color: var(--c-trans-dark);
   background-color: var(--c-main);
@@ -37,16 +36,11 @@
 .CodeMirror-gutters {
   background-color: var(--c-main);
 }
-.editor-toolbar {
+.editor-toolbar, .editor-toolbar.fullscreen {
   background-color: var(--c-main-dark);
 }
-.editor-toolbar.fullscreen {
-  background-color: var(--c-main-dark);
-}
+
 .editor-toolbar a {
   color: var(--c-main-dark);
-}
-.editor-preview-full, .editor-preview-side {
-  background-color: var(--c-main-light);
 }
 
