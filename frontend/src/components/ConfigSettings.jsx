@@ -1,4 +1,4 @@
-import { currentConfig } from "./exports";
+import { currentConfig } from "../functions/exports";
 
 function ConfigSettings() {
 

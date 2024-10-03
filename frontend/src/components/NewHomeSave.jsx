@@ -1,6 +1,6 @@
 import { saveFile } from './Editor';
-import { currentDir, currentFile, setCurrentDir, setCurrentFile, setCurrentMenu} from './exports';
-import { getDirByID, newFile, newDir, getDirsFromAPI } from './api';
+import { currentDir, currentFile, setCurrentDir, setCurrentFile, setCurrentMenu} from '../functions/exports';
+import { getDirByID, newFile, newDir, getDirsFromAPI } from '../functions/api';
 
 function NewHomeSave() {
 

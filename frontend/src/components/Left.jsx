@@ -1,8 +1,9 @@
 import Menu from './Menu';
 import Search from './Search';
 import NewHomeSave from './NewHomeSave';
-import { getConfig, getDirByID, getDirsFromAPI } from './api';
-import { setCurrentConfig, setCurrentDir, setCurrentMenu} from './exports';
+import { getConfig, getDirByID, getDirsFromAPI } from '../functions/api';
+import { setCurrentConfig, setCurrentDir, setCurrentMenu} from '../functions/exports';
+import './Left.css';
 
 function Left() {  
 

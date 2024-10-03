@@ -1,7 +1,7 @@
 import { For, Show } from 'solid-js';
 import { setEditorValue } from './Editor';
-import { getDirsFromAPI, getDirByID, getFileByID } from './api';
-import { currentDir, currentMenu, setCurrentDir, setCurrentFile, setCurrentMenu } from './exports';
+import { getDirsFromAPI, getDirByID, getFileByID } from '../functions/api';
+import { currentDir, currentMenu, setCurrentDir, setCurrentFile, setCurrentMenu } from '../functions/exports';
 import MenuEdit from './MenuEdit';
 
 function Menu() {

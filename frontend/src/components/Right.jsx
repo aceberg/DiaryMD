@@ -2,6 +2,7 @@ import { onCleanup, onMount } from "solid-js";
 import { saveFile } from './Editor';
 import Editor from './Editor';
 import Tabs from "./Tabs";
+import './Right.css';
 
 function Right() {
 

@@ -1,6 +1,6 @@
-import { deleteFileOrDir, renameFileOrDir } from "./api";
-import { currentDir, setCurrentMenu} from './exports';
-import { getDirsFromAPI } from "./api";
+import { deleteFileOrDir, renameFileOrDir } from "../functions/api";
+import { currentDir, setCurrentMenu} from '../functions/exports';
+import { getDirsFromAPI } from "../functions/api";
 
 function MenuEdit(props) {
 

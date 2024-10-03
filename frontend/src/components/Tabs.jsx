@@ -1,4 +1,4 @@
-import { currentFile, setCurrentFile, emptyFile } from "./exports";
+import { currentFile, setCurrentFile, emptyFile } from "../functions/exports";
 import { setEditorValue } from './Editor';
 
 function Tabs() {

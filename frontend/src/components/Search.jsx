@@ -1,5 +1,5 @@
-import { apiSearch } from "./api";
-import { currentDir, setCurrentMenu } from "./exports";
+import { apiSearch } from "../functions/api";
+import { currentDir, setCurrentMenu } from "../functions/exports";
 
 function Search() {
 

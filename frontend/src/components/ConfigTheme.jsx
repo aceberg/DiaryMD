@@ -1,4 +1,4 @@
-import { currentConfig, currentTheme, setCurrentTheme } from "./exports";
+import { currentConfig, currentTheme, setCurrentTheme } from "../functions/exports";
 
 function ConfigTheme() {
 
