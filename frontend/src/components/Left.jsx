@@ -16,7 +16,7 @@ function Left() {
   setAtStart();
 
   return (
-    <div class='col-3 h-100 d-flex flex-column'>
+    <div class='col-3 h-100 d-flex flex-column mb-3'>
       <Search></Search>
       <div class='menu-head'>
         <NewHomeSave></NewHomeSave>

@@ -13,8 +13,11 @@ func Get(path string) models.Conf {
 
 	viper.SetDefault("HOST", "0.0.0.0")
 	viper.SetDefault("PORT", "8830")
-	viper.SetDefault("THEME", "simplex")
-	viper.SetDefault("COLOR", "dark")
+	viper.SetDefault("THEME", "sand")
+	viper.SetDefault("C_MODE", "light")
+	viper.SetDefault("C_MENU", "#dfb377")
+	viper.SetDefault("C_EDIT", "#faeddc")
+	viper.SetDefault("C_BACK", "#f8e6cc")
 
 	viper.SetConfigFile(path)
 	viper.SetConfigType("yaml")
@@ -26,7 +29,10 @@ func Get(path string) models.Conf {
 	config.Host, _ = viper.Get("HOST").(string)
 	config.Port, _ = viper.Get("PORT").(string)
 	config.Theme, _ = viper.Get("THEME").(string)
-	config.Color, _ = viper.Get("COLOR").(string)
+	config.ColorMode, _ = viper.Get("C_MODE").(string)
+	config.ColorMenu, _ = viper.Get("C_MENU").(string)
+	config.ColorEdit, _ = viper.Get("C_EDIT").(string)
+	config.ColorBack, _ = viper.Get("C_BACK").(string)
 
 	return config
 }
@@ -40,7 +46,10 @@ func Write(config models.Conf) {
 	viper.Set("host", config.Host)
 	viper.Set("port", config.Port)
 	viper.Set("theme", config.Theme)
-	viper.Set("color", config.Color)
+	viper.Set("c_mode", config.ColorMode)
+	viper.Set("c_menu", config.ColorMenu)
+	viper.Set("c_edit", config.ColorEdit)
+	viper.Set("c_back", config.ColorBack)
 
 	err := viper.WriteConfig()
 	check.IfError(err)

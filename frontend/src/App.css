@@ -30,7 +30,7 @@ body {
   background-color: var(--c-trans-dark);
   border-color: #00000000;
 }
-.form-control:focus {
+.form-control:focus, .form-select:focus {
   border-color: var(--c-grey-light);
   box-shadow: 0 0 10px var(--c-main-dark);
 }

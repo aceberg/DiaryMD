@@ -64,11 +64,13 @@ func Gui(dirPath, nodePath string) {
 	router.GET("/api/file/:id", apiGetFile)       // api.go
 	router.GET("/api/search/:id/:str", apiSearch) // api.go
 
+	router.POST("/api/config", apiSetConfig) // api.go
 	router.POST("/api/del", apiDelete)       // api.go
 	router.POST("/api/file", apiFileSave)    // api.go
 	router.POST("/api/move", apiMove)        // api.go
 	router.POST("/api/new/file", apiNewFile) // api.go
 	router.POST("/api/new/dir", apiNewDir)   // api.go
+	router.POST("/api/theme", apiSetTheme)   // api.go
 
 	err := router.Run(address)
 	check.IfError(err)

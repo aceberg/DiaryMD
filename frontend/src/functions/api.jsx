@@ -1,8 +1,19 @@
+import { applyCurrentTheme, setCurrentTheme } from "./exports";
+
 const api = 'http://0.0.0.0:8830';
 
 export const getConfig = async () => {
   const url = api+'/api/config';
   const conf = await (await fetch(url)).json();
+
+  setCurrentTheme({
+    Theme: conf.Theme,
+    Color: conf.ColorMode,
+    Menu: conf.ColorMenu,
+    Background: conf.ColorBack,
+    Editor: conf.ColorEdit,
+  });
+  applyCurrentTheme();
 
   return conf;
 };
@@ -91,4 +102,28 @@ export const apiSearch = async (id, str) => {
   const dirs = await (await fetch(url)).json();
 
   return dirs;
+};
+
+export const apiSaveTheme = async (newTheme) => {
+
+  let data = new FormData();
+  data.set('theme', newTheme.Theme);
+  data.set('mode', newTheme.Color);
+  data.set('menu', newTheme.Menu);
+  data.set('back', newTheme.Background);
+  data.set('edit', newTheme.Editor);
+
+  let request = new XMLHttpRequest();
+  request.open("POST", api+'/api/theme', true);
+  request.send(data);
+};
+
+export const apiSaveConfig = async (path) => {
+
+  let data = new FormData();
+  data.set('path', path);
+
+  let request = new XMLHttpRequest();
+  request.open("POST", api+'/api/config', true);
+  request.send(data);
 };

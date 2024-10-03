@@ -1,27 +1,29 @@
-import { currentConfig, currentTheme, setCurrentTheme } from "../functions/exports";
+import { apiSaveTheme } from "../functions/api";
+import { applyCurrentTheme, currentConfig, currentTheme, setCurrentTheme } from "../functions/exports";
 
 function ConfigTheme() {
 
+  console.log("Theme before:", currentTheme());
+
   const handleSave = async () => {
+    const theme = document.getElementById("theme").value;
+    const col = document.getElementById("col").value;
     const menu = document.getElementById("menu-color").value;
     const edit = document.getElementById("edit-color").value;
     const back = document.getElementById("back-color").value;
-    const col = document.getElementById("color").value;
+
     setCurrentTheme({
-      Theme: 'new',
+      Theme: theme,
       Color: col,
       Menu: menu,
       Background: back,
       Editor: edit,
     });
 
-    document.documentElement.style.setProperty('--c-main', currentTheme().Background);
-    document.documentElement.style.setProperty('--c-main-light', currentTheme().Editor);
-    document.documentElement.style.setProperty('--c-main-dark', currentTheme().Menu);
-    document.documentElement.style.setProperty('--bs-primary', currentTheme().Menu);
-    document.documentElement.setAttribute('data-bs-theme', currentTheme().Color);
+    applyCurrentTheme();
+    apiSaveTheme(currentTheme());
 
-    console.log("Theme:", menu, edit, back);
+    console.log("Theme:", currentTheme());
   };
 
   return (
@@ -39,17 +41,23 @@ function ConfigTheme() {
               <tbody>
                 <tr>
                   <td>Theme</td>
-                  <td><input id="theme" class="form-control" value={currentConfig().Theme}></input></td>
+                  <td>
+                    <select id="theme" class="form-select">
+                      <option value={currentConfig().Theme} selected>{currentConfig().Theme}</option>
+                      <option value="dark">dark</option>
+                      <option value="lake">lake</option>
+                      <option value="sand">sand</option>
+                      <option value="CUSTOM">CUSTOM</option>
+                    </select>
+                  </td>
                 </tr>
                 <tr>
                   <td>Color mode</td>
                   <td>
-                    <select id="color" class="form-select">
-                      <option value={currentConfig().Color}>{currentConfig().Color}</option>
-                      <Show
-                        when={currentConfig().Color === "light"}
-                        fallback={<option value="light">light</option>}
-                      ><option value="dark">dark</option></Show>
+                    <select id="col" class="form-select">
+                      <option value={currentConfig().Color} selected>{currentConfig().Color}</option>
+                      <option value="dark">dark</option>
+                      <option value="light">light</option>
                     </select>
                   </td>
                 </tr>

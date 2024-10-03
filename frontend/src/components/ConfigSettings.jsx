@@ -1,9 +1,14 @@
-import { currentConfig } from "../functions/exports";
+import { apiSaveConfig } from "../functions/api";
+import { currentConfig, setCurrentConfig } from "../functions/exports";
 
 function ConfigSettings() {
 
   const handleSave = async () => {
     const path = document.getElementById("path").value;
+
+    setCurrentConfig({RepoPath: path,});
+    apiSaveConfig(path);
+
     console.log("Path:", path);
   };
 

@@ -6,6 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
+	"github.com/aceberg/DiaryMD/internal/conf"
 	"github.com/aceberg/DiaryMD/internal/models"
 	"github.com/aceberg/DiaryMD/internal/repo"
 )
@@ -21,6 +22,28 @@ func apiHandler(c *gin.Context) {
 func apiGetConfig(c *gin.Context) {
 
 	c.IndentedJSON(http.StatusOK, appConfig)
+}
+
+func apiSetConfig(c *gin.Context) {
+
+	appConfig.RepoPath = c.PostForm("path")
+
+	conf.Write(appConfig)
+
+	c.IndentedJSON(http.StatusOK, "OK")
+}
+
+func apiSetTheme(c *gin.Context) {
+
+	appConfig.Theme = c.PostForm("theme")
+	appConfig.ColorMode = c.PostForm("mode")
+	appConfig.ColorMenu = c.PostForm("menu")
+	appConfig.ColorEdit = c.PostForm("edit")
+	appConfig.ColorBack = c.PostForm("back")
+
+	conf.Write(appConfig)
+
+	c.IndentedJSON(http.StatusOK, "OK")
 }
 
 func apiDirsLs(c *gin.Context) {

@@ -1,5 +1,6 @@
 import logo from "../assets/diary1.png";
 import Config from "./Config";
+import ConfigAbout from "./ConfigAbout";
 import ConfigSettings from "./ConfigSettings";
 import ConfigTheme from "./ConfigTheme";
 
@@ -14,6 +15,7 @@ function Header() {
     </div>
     <ConfigSettings></ConfigSettings>
     <ConfigTheme></ConfigTheme>
+    <ConfigAbout></ConfigAbout>
     </>
   );
 }
