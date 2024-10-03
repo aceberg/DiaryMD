@@ -19,10 +19,10 @@ var (
 
 	// pubFS - public folder
 	//
-	//go:embed dist/assets/*
+	//go:embed public/assets/*
 	assetsFS embed.FS
 
-	//go:embed dist/index.html
+	//go:embed public/index.html
 	templFS embed.FS
 )
 
@@ -37,9 +37,6 @@ func Gui(dirPath, nodePath string) {
 	appConfig.ConfPath = confPath
 	appConfig.NodePath = nodePath
 
-	// Remove later
-	appConfig.RepoPath = "/home/data/repo/01-cloned/testrepo"
-
 	log.Println("INFO: starting web gui with config", appConfig.ConfPath)
 
 	address := appConfig.Host + ":" + appConfig.Port
@@ -51,11 +48,11 @@ func Gui(dirPath, nodePath string) {
 	gin.SetMode(gin.ReleaseMode)
 	router := gin.Default()
 
-	templ := template.Must(template.New("").ParseFS(templFS, "dist/index.html"))
+	templ := template.Must(template.New("").ParseFS(templFS, "public/index.html"))
 	router.SetHTMLTemplate(templ) // templates
 
 	router.GET("/", indexHandler) // index.go
-	router.StaticFS("/assets", http.FS(assetsFS))
+	router.StaticFS("/fs", http.FS(assetsFS))
 
 	router.GET("/api", apiHandler)                // api.go
 	router.GET("/api/config", apiGetConfig)       // api.go

@@ -12,7 +12,8 @@ func Get(path string) models.Conf {
 	var config models.Conf
 
 	viper.SetDefault("HOST", "0.0.0.0")
-	viper.SetDefault("PORT", "8830")
+	viper.SetDefault("PORT", "8854")
+	viper.SetDefault("REPOPATH", "")
 	viper.SetDefault("THEME", "sand")
 	viper.SetDefault("C_MODE", "light")
 	viper.SetDefault("C_MENU", "#dfb377")
@@ -28,6 +29,7 @@ func Get(path string) models.Conf {
 
 	config.Host, _ = viper.Get("HOST").(string)
 	config.Port, _ = viper.Get("PORT").(string)
+	config.RepoPath, _ = viper.Get("REPOPATH").(string)
 	config.Theme, _ = viper.Get("THEME").(string)
 	config.ColorMode, _ = viper.Get("C_MODE").(string)
 	config.ColorMenu, _ = viper.Get("C_MENU").(string)
@@ -45,6 +47,7 @@ func Write(config models.Conf) {
 
 	viper.Set("host", config.Host)
 	viper.Set("port", config.Port)
+	viper.Set("repopath", config.RepoPath)
 	viper.Set("theme", config.Theme)
 	viper.Set("c_mode", config.ColorMode)
 	viper.Set("c_menu", config.ColorMenu)

@@ -1,6 +1,6 @@
 {
-  "name": "vite-template-solid",
-  "version": "0.0.0",
+  "name": "diarymd",
+  "version": "0.1.0",
   "description": "",
   "scripts": {
     "start": "vite",
