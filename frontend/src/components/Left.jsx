@@ -16,12 +16,12 @@ function Left() {
   setAtStart();
 
   return (
-    <div class='col-3 h-100 d-flex flex-column mb-3'>
+    <div class='col-md-3 mb-3'>
       <Search></Search>
-      <div class='menu-head'>
+      <div class='menu-head rounded-top'>
         <NewHomeSave></NewHomeSave>
       </div>
-      <div class="menu-card">
+      <div class="menu-card rounded-bottom">
         <Menu></Menu>
       </div>
     </div>

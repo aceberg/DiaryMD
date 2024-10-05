@@ -45,9 +45,9 @@ function NewHomeSave() {
   return (
       <div class='d-flex justify-content-between mx-3'>
         <i class="bi bi-folder img-mg" title='Home' onClick={[handleHome]}></i>
-        <i class="bi bi-folder-plus img-mg" title='Home' onClick={[handleDir]}></i>
-        <i class="bi bi-file-earmark-plus img-mg" title='Home' onClick={[handleFile]}></i>
-        <i class="bi bi-floppy img-mg" title='Home' onClick={[handleSave]}></i>
+        <i class="bi bi-folder-plus img-mg" title='New Dir' onClick={[handleDir]}></i>
+        <i class="bi bi-file-earmark-plus img-mg" title='New File' onClick={[handleFile]}></i>
+        <i class="bi bi-floppy img-mg" title='Save' onClick={[handleSave]}></i>
       </div>
     );
   }

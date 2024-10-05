@@ -29,7 +29,9 @@ function Editor() {
       element: textareaRef,
       autoDownloadFontAwesome: true, 
       lineNumbers: true,
-      showIcons: ["code", "strikethrough", "horizontal-rule"],
+      spellChecker: false,
+      // showIcons: ["code", "strikethrough", "horizontal-rule"],
+      toolbar: ["bold", "italic", "strikethrough", "heading", "code", "quote", "unordered-list", "ordered-list", "link", "image", "horizontal-rule", "preview", "side-by-side", "fullscreen", "guide"],
     });
 
     easyMDE.codemirror.on("change", () => {

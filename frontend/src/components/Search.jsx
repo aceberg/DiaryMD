@@ -17,7 +17,7 @@ function Search() {
 
   return (
     <div class='file-place'>
-      <input onKeyDown={handleSearch} id="search" class="form-control" placeholder="Search"></input>
+      <input onKeyDown={handleSearch} id="search" class="form-control" title="Search" placeholder="Search"></input>
     </div>
   );
 }

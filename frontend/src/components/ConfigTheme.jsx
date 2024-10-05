@@ -7,14 +7,13 @@ function ConfigTheme() {
 
   const handleSave = async () => {
     const theme = document.getElementById("theme").value;
-    const col = document.getElementById("col").value;
     const menu = document.getElementById("menu-color").value;
     const edit = document.getElementById("edit-color").value;
     const back = document.getElementById("back-color").value;
 
     setCurrentTheme({
       Theme: theme,
-      Color: col,
+      Color: "light",
       Menu: menu,
       Background: back,
       Editor: edit,
@@ -48,16 +47,6 @@ function ConfigTheme() {
                       <option value="lake">lake</option>
                       <option value="sand">sand</option>
                       <option value="CUSTOM">CUSTOM</option>
-                    </select>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Color mode</td>
-                  <td>
-                    <select id="col" class="form-select">
-                      <option value={currentConfig().Color} selected>{currentConfig().Color}</option>
-                      <option value="dark">dark</option>
-                      <option value="light">light</option>
                     </select>
                   </td>
                 </tr>

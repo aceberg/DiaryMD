@@ -1,53 +1,56 @@
 /* VARS */
 :root {
-  /* Sand theme */
-  --c-sand-lite: #faeddc;
-  --c-sand: #f8e6cc;
-  --c-sand-dark: #dfb377;
-
-  --c-main: var(--c-sand);
-  --c-main-light: var(--c-sand-lite);
-  --c-main-dark: var(--c-sand-dark);
-  --c-main-font: black;
+  --c-main: #f8e6cc;
+  --c-main-light: #faeddc;
+  --c-main-dark: #dfb377;
+  --c-main-font: #53504a;
+  --c-main-out: #6d6d6d;
 
   --c-trans-light: #00000015;
   --c-trans-dark: #00000093;
-  --c-grey-light: #d1caca;
-
-  --bs-primary: var(--c-main-dark);
 }
 /* ALL */
 body {
   --bs-body-bg: var(--c-main);
+  --bs-body-color: var(--c-main-font);
+  /* For table in Modals */
+  --bs-emphasis-color: var(--c-main-font);
 }
 
 /* BOOTSTRAP */
-.btn-primary, .dropdown-link-hover-bg, .dropdown-link-active-bg {
+.btn-close:focus {
+  box-shadow: 0 0 10px var(--c-main-dark);
+}
+.btn-primary {
   background-color: var(--c-main-dark);
   border-color: var(--c-main-dark);
 }
-.btn-primary:hover {
-  background-color: var(--c-trans-dark);
-  border-color: #00000000;
+.btn-primary:hover, .btn:active, .btn:first-child:active, .btn.active, .btn.show {
+  background-color: var(--c-trans-light);
+  border-color: var(--c-trans-dark);
+}
+.dropdown-item.active, .dropdown-item:active {
+  background-color: var(--c-main-dark);
+  border-color: var(--c-main-dark);
+}
+.form-control, .form-select {
+  border-color: var(--c-main-out);
 }
 .form-control:focus, .form-select:focus {
-  border-color: var(--c-grey-light);
+  border-color: var(--c-main-out);
   box-shadow: 0 0 10px var(--c-main-dark);
 }
+.form-control::-moz-placeholder, .form-control::placeholder {
+  color: var(--c-main-out);
+}
 
-
+/* Any image button */
 .shade-hover:hover {
   background-color: var(--c-trans-light);
   cursor: pointer;
 }
 
-.menu-card, .menu-head {
-  border-width: thin;
-  border-color: var(--c-grey-light);
-  border-style: solid;
-}
-
-/* FILE BTN */
+/* Place for Search or Tab */
 .file-place {
   min-height: 50px;
   align-content: center;

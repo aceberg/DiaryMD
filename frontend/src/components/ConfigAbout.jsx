@@ -11,7 +11,7 @@ function ConfigAbout() {
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <a href="https://github.com/aceberg/DiaryMD">https://github.com/aceberg/DiaryMD</a>
+            Github: <a href="https://github.com/aceberg/DiaryMD">https://github.com/aceberg/DiaryMD</a>
           </div>
         </div>
       </div>

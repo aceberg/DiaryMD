@@ -2,12 +2,11 @@
 .tab {
   background-color: var(--c-main-light);
   border-width: thin;
-  border-color: var(--c-grey-light);
+  border-color: var(--c-main-out);
   border-style: solid;
-  border-top-left-radius: 10%;
-  border-top-right-radius: 10%;
   min-height: 40px;
   align-content: center;
+  color: var(--c-main-font);
 }
 .tab:hover {
   background-color: var(--c-trans-light);
@@ -23,24 +22,33 @@
 /* EDITOR */
 .CodeMirror, .editor-preview-full, .editor-preview-side {
   background-color: var(--c-main-light);
+  color: var(--c-main-font);
+  border-color: var(--c-main-out);
+}
+
+.EasyMDEContainer .CodeMirror {
+  border-color: var(--c-main-out);
 }
 .EasyMDEContainer .CodeMirror-fullscreen {
   background-color: var(--c-main-light);
-  color: var(--c-main-font); 
+  color: var(--c-main-font);
 }
 
 .CodeMirror-linenumber {
-  color: var(--c-trans-dark);
+  color: var(--c-main-out);
   background-color: var(--c-main);
 }
 .CodeMirror-gutters {
   background-color: var(--c-main);
+  border-color: var(--c-main-out);
 }
 .editor-toolbar, .editor-toolbar.fullscreen {
   background-color: var(--c-main-dark);
+  border-color: var(--c-main-out);
 }
-
-.editor-toolbar a {
-  color: var(--c-main-dark);
+.editor-toolbar button {
+  color: var(--c-main-font);
 }
-
+.editor-statusbar {
+  color: var(--c-main-out);
+}

@@ -26,7 +26,7 @@ function Right() {
   });
 
   return (
-    <div class='col-9 h-100 d-flex flex-column'>
+    <div class='col-md-9'>
       <Tabs></Tabs>
       <Editor></Editor>
     </div>

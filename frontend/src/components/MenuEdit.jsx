@@ -28,7 +28,7 @@ function MenuEdit(props) {
 
   return (
     <>
-      <i onClick={[handleEdit, props.data]} data-bs-toggle="modal" data-bs-target={targetID} class="bi bi-three-dots-vertical shade-hover float-end mx-2 p-1"></i>
+      <i onClick={[handleEdit, props.data]} data-bs-toggle="modal" data-bs-target={targetID} class="bi bi-three-dots-vertical shade-hover float-end mx-2 p-1" title="Edit"></i>
 
       {/* MODAL */}
       <div class="modal fade" id={modalID} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

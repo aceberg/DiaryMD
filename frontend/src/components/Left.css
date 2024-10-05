@@ -6,17 +6,16 @@
   background-color: var(--c-trans-light);
 }
 
+.menu-card, .menu-head {
+  border-width: thin;
+  border-color: var(--c-main-out);
+  border-style: solid;
+}
+
 .menu-head {
   background-color: var(--c-main-dark);
   min-height: 50px;
   align-content: center;
-  border-top-left-radius: 5%;
-  border-top-right-radius: 5%;
-}
-.menu-card {
-  border-bottom-left-radius: 2%;
-  border-bottom-right-radius: 2%;
-  /* min-height: 500px; */
 }
 
 .img-mg {
@@ -28,9 +27,9 @@
 }
 .img-mg:hover {
   border-width: thin;
-  border-color: var(--c-grey-light);
+  border-color: #d1caca;
   border-style: solid;
-  border-radius: 15%;
+  border-radius: 10%;
   background-color: #ffffff;
 }
 
