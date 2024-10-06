@@ -15,7 +15,7 @@ function ConfigSettings() {
   return (
     <>
       {/* MODAL */}
-    <div class="modal modal-lg fade" id="configModal" tabindex="-1" aria-labelledby="configModallLabel" aria-hidden="true">
+    <div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModallLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">

@@ -7,11 +7,12 @@ export const getConfig = async () => {
   const conf = await (await fetch(url)).json();
 
   setCurrentTheme({
-    Theme: conf.Theme,
-    Color: conf.ColorMode,
-    Menu: conf.ColorMenu,
-    Background: conf.ColorBack,
-    Editor: conf.ColorEdit,
+    Theme: conf.Colors.Theme,
+    Menu: conf.Colors.Menu,
+    Back: conf.Colors.Back,
+    Edit: conf.Colors.Edit,
+    Font: conf.Colors.Font,
+    Outline: conf.Colors.Outline,
   });
   applyCurrentTheme();
 
@@ -108,10 +109,11 @@ export const apiSaveTheme = async (newTheme) => {
 
   let data = new FormData();
   data.set('theme', newTheme.Theme);
-  data.set('mode', newTheme.Color);
+  data.set('font', newTheme.Font);
   data.set('menu', newTheme.Menu);
-  data.set('back', newTheme.Background);
-  data.set('edit', newTheme.Editor);
+  data.set('back', newTheme.Back);
+  data.set('edit', newTheme.Edit);
+  data.set('outline', newTheme.Outline);
 
   let request = new XMLHttpRequest();
   request.open("POST", api+'/api/theme', true);

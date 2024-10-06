@@ -3,7 +3,7 @@ function ConfigAbout() {
   return (
     <>
       {/* MODAL */}
-    <div class="modal modal-lg fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModallLabel" aria-hidden="true">
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModallLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">

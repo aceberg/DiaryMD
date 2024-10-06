@@ -1,3 +1,5 @@
+import { Show } from 'solid-js';
+import { currentBlog } from './functions/exports';
 import Header from './components/Header';
 import Left from './components/Left';
 import Right from './components/Right';
@@ -15,10 +17,16 @@ function App() {
       <div class='row'>
         <Header></Header>
       </div>
-      <div class='row mt-4'>
-        <Left></Left>
-        <Right></Right>
-      </div>
+      <Show
+        when={currentBlog()}
+        fallback={
+          <div class='row mt-2'>
+            <Left></Left>
+            <Right></Right>
+          </div>}
+      >
+      <p>BLOG</p>
+      </Show>
     </div>
   );
 }

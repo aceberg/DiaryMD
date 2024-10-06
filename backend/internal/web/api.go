@@ -35,11 +35,12 @@ func apiSetConfig(c *gin.Context) {
 
 func apiSetTheme(c *gin.Context) {
 
-	appConfig.Theme = c.PostForm("theme")
-	appConfig.ColorMode = c.PostForm("mode")
-	appConfig.ColorMenu = c.PostForm("menu")
-	appConfig.ColorEdit = c.PostForm("edit")
-	appConfig.ColorBack = c.PostForm("back")
+	appConfig.Colors.Theme = c.PostForm("theme")
+	appConfig.Colors.Font = c.PostForm("font")
+	appConfig.Colors.Menu = c.PostForm("menu")
+	appConfig.Colors.Edit = c.PostForm("edit")
+	appConfig.Colors.Back = c.PostForm("back")
+	appConfig.Colors.Outline = c.PostForm("outline")
 
 	conf.Write(appConfig)
 

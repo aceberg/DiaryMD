@@ -10,13 +10,16 @@ function ConfigTheme() {
     const menu = document.getElementById("menu-color").value;
     const edit = document.getElementById("edit-color").value;
     const back = document.getElementById("back-color").value;
+    const font = document.getElementById("font-color").value;
+    const out = document.getElementById("out-color").value;
 
     setCurrentTheme({
       Theme: theme,
-      Color: "light",
+      Font: font,
       Menu: menu,
-      Background: back,
-      Editor: edit,
+      Back: back,
+      Edit: edit,
+      Outline: out,
     });
 
     applyCurrentTheme();
@@ -28,7 +31,7 @@ function ConfigTheme() {
   return (
     <>
       {/* MODAL */}
-    <div class="modal modal-lg fade" id="themeModal" tabindex="-1" aria-labelledby="configModallLabel" aria-hidden="true">
+    <div class="modal fade" id="themeModal" tabindex="-1" aria-labelledby="configModallLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -42,13 +45,17 @@ function ConfigTheme() {
                   <td>Theme</td>
                   <td>
                     <select id="theme" class="form-select">
-                      <option value={currentConfig().Theme} selected>{currentConfig().Theme}</option>
+                      <option value={currentTheme().Theme} selected disabled>{currentTheme().Theme}</option>
                       <option value="dark">dark</option>
                       <option value="lake">lake</option>
+                      <option value="night">night</option>
                       <option value="sand">sand</option>
                       <option value="CUSTOM">CUSTOM</option>
                     </select>
                   </td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="text-center">To change colors set Theme to CUSTOM</td>
                 </tr>
                 <tr>
                   <td>Menu</td>
@@ -56,11 +63,19 @@ function ConfigTheme() {
                 </tr>
                 <tr>
                   <td>Editor</td>
-                  <td><input id="edit-color" type="color" class="form-control" value={currentTheme().Editor}></input></td>
+                  <td><input id="edit-color" type="color" class="form-control" value={currentTheme().Edit}></input></td>
                 </tr>
                 <tr>
                   <td>Back</td>
-                  <td><input id="back-color" type="color" class="form-control" value={currentTheme().Background}></input></td>
+                  <td><input id="back-color" type="color" class="form-control" value={currentTheme().Back}></input></td>
+                </tr>
+                <tr>
+                  <td>Font</td>
+                  <td><input id="font-color" type="color" class="form-control" value={currentTheme().Font}></input></td>
+                </tr>
+                <tr>
+                  <td>Outline</td>
+                  <td><input id="out-color" type="color" class="form-control" value={currentTheme().Outline}></input></td>
                 </tr>
               </tbody>
             </table>

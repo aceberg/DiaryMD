@@ -22,24 +22,35 @@ const emptyConf = {
 
 const sandTheme = {
     Theme: 'sand',
-    Color: 'light',
+    Font: '#4d2700',
     Menu: '#dfb377',
-    Background: '#f8e6cc',
-    Editor: '#faeddc',
+    Back: '#f8e6cc',
+    Edit: '#faeddc',
+    Outline: '#babdb6',
 };
 const lakeTheme = {
     Theme: 'lake',
-    Color: 'light',
+    Font: '#313136',
     Menu: '#3fa0a7',
-    Background: '#89aeb1',
-    Editor: '#babdb6',
+    Back: '#89aeb1',
+    Edit: '#babdb6',
+    Outline: '#616161',
 };
 const darkTheme = {
     Theme: 'dark',
-    Color: 'dark',
+    Font: '#d3d7cf',
     Menu: '#2e3436',
-    Background: '#2e3436',
-    Editor: '#888a85',
+    Back: '#2e3436',
+    Edit: '#2e3436',
+    Outline: '#616161',
+};
+const nightTheme = {
+    Theme: 'night',
+    Font: '#babdb6',
+    Menu: '#03121f',
+    Back: '#03121f',
+    Edit: '#0f2c45',
+    Outline: '#616161',
 };
 
 export const [currentFile, setCurrentFile] = createSignal(emptyFile);
@@ -54,18 +65,27 @@ export const [currentTheme, setCurrentTheme] = createSignal(sandTheme);
 
 export function applyCurrentTheme() {
 
-    if (currentTheme().Theme === "sand") {
-        setCurrentTheme(sandTheme);
-    }
-    if (currentTheme().Theme === "lake") {
-        setCurrentTheme(lakeTheme);
-    }
-    if (currentTheme().Theme === "dark") {
-        setCurrentTheme(darkTheme);
+    switch (currentTheme().Theme) {
+        case 'dark':
+            setCurrentTheme(darkTheme);
+            break;
+        case 'lake':
+            setCurrentTheme(lakeTheme);
+            break;
+        case 'night':
+            setCurrentTheme(nightTheme);
+            break;
+        case 'sand':
+            setCurrentTheme(sandTheme);
+            break;
     }
 
-    document.documentElement.style.setProperty('--c-main', currentTheme().Background);
-    document.documentElement.style.setProperty('--c-main-light', currentTheme().Editor);
+    document.documentElement.style.setProperty('--c-main', currentTheme().Back);
+    document.documentElement.style.setProperty('--c-main-light', currentTheme().Edit);
     document.documentElement.style.setProperty('--c-main-dark', currentTheme().Menu);
-    document.documentElement.setAttribute('data-bs-theme', currentTheme().Color);
+    document.documentElement.style.setProperty('--c-main-font', currentTheme().Font);
+    document.documentElement.style.setProperty('--c-main-out', currentTheme().Outline);
+
 };
+
+export const [currentBlog, setCurrentBlog] = createSignal(false);
