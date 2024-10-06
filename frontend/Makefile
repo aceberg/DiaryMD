@@ -8,8 +8,9 @@ build:
 
 replace:
 	cd ../backend/internal/web/public/assets/ && \
-	cp diary1-*.png favicon.png && \
+	mv favicon-*.png favicon.png && \
 	cat index-*.js | sed 's/assets/fs\/public\/assets/g;s/http:\/\/0.0.0.0:8830//' > index.js && \
-	cat index-*.css | sed 's/assets/fs\/public\/assets/g' > index.css
+	cat index-*.css | sed 's/assets/fs\/public\/assets/g' > index.css && \
+	rm index-*
 
 all: build replace
