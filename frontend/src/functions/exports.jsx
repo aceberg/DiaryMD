@@ -20,6 +20,18 @@ const emptyConf = {
     RepoPath: '',
 };
 
+export const [currentFile, setCurrentFile] = createSignal(emptyFile);
+
+export const [currentDir, setCurrentDir] = createSignal(emptyDir);
+
+export const [currentMenu, setCurrentMenu] = createSignal([]);
+
+export const [currentConfig, setCurrentConfig] = createSignal(emptyConf);
+
+export const [currentBlog, setCurrentBlog] = createSignal(false);
+
+export const [currentTabList, setCurrentTabList] = createSignal([]);
+
 const sandTheme = {
     Theme: 'sand',
     Font: '#4d2700',
@@ -53,14 +65,6 @@ const nightTheme = {
     Outline: '#616161',
 };
 
-export const [currentFile, setCurrentFile] = createSignal(emptyFile);
-
-export const [currentDir, setCurrentDir] = createSignal(emptyDir);
-
-export const [currentMenu, setCurrentMenu] = createSignal([]);
-
-export const [currentConfig, setCurrentConfig] = createSignal(emptyConf);
-
 export const [currentTheme, setCurrentTheme] = createSignal(sandTheme);
 
 export function applyCurrentTheme() {
@@ -87,5 +91,3 @@ export function applyCurrentTheme() {
     document.documentElement.style.setProperty('--c-main-out', currentTheme().Outline);
 
 };
-
-export const [currentBlog, setCurrentBlog] = createSignal(false);

@@ -24,7 +24,7 @@ body {
 }
 .btn-primary {
   background-color: var(--c-main-dark);
-  border-color: var(--c-main-dark);
+  border-color: var(--c-main-out);
 }
 .btn-primary:hover, .btn:active, .btn:first-child:active, .btn.active, .btn.show {
   background-color: var(--c-trans-light);
