@@ -1,5 +1,5 @@
 /* TABS */
-.tab {
+.tab, .tab-main {
   background-color: var(--c-main-light);
   border-width: thin;
   border-color: var(--c-main-out);
@@ -8,8 +8,14 @@
   align-content: center;
   color: var(--c-main-font);
 }
-.tab:hover {
+.tab:hover, .tab-main:hover {
   background-color: var(--c-trans-light);
+}
+
+.tab-main {
+  background-color: var(--c-main);
+  border-bottom-color: var(--c-main);
+  border-bottom-width: thick;
 }
 
 .tab-close {
