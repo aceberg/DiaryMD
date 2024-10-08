@@ -8,7 +8,7 @@
   align-content: center;
   color: var(--c-main-font);
 }
-.tab:hover, .tab-main:hover {
+.tab:hover {
   background-color: var(--c-trans-light);
 }
 
@@ -16,13 +16,6 @@
   background-color: var(--c-main);
   border-bottom-color: var(--c-main);
   border-bottom-width: thick;
-}
-
-.tab-close {
-  margin: 10px;
-}
-.tab-close:hover {
-  background-color: var(--c-trans-dark);
 }
 
 /* EDITOR */

@@ -3,6 +3,7 @@ import { currentBlog } from './functions/exports';
 import Header from './components/Header';
 import Left from './components/Left';
 import Right from './components/Right';
+import Blog from './components/Blog';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
@@ -25,7 +26,7 @@ function App() {
             <Right></Right>
           </div>}
       >
-      <p>BLOG</p>
+      <Blog></Blog>
       </Show>
     </div>
   );

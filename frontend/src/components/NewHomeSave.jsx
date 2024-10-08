@@ -25,7 +25,6 @@ function NewHomeSave() {
   };
 
   const handleSave = async () => {
-    console.log('Save file');
     if (currentFile().Path == '') {
       const path = currentDir().Path+'/NewFile';
       console.log("New file path: ", path);

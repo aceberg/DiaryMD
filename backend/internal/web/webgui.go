@@ -55,6 +55,7 @@ func Gui(dirPath, nodePath string) {
 	router.StaticFS("/fs", http.FS(assetsFS))
 
 	router.GET("/api", apiHandler)                // api.go
+	router.GET("/api/blog", apiGetBlogJSON)       // api.go
 	router.GET("/api/config", apiGetConfig)       // api.go
 	router.GET("/api/dirs/ls/:id", apiDirsLs)     // api.go
 	router.GET("/api/dirs/info/:id", apiDirsInfo) // api.go

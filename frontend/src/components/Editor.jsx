@@ -16,6 +16,7 @@ export function setEditorValue(newText) {
 }
 
 export function saveFile() {
+  console.log('Save file', currentFile());
   saveFileToAPI(currentFile().Path, fileText);
 }
 

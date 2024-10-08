@@ -6,8 +6,8 @@
   --c-main-font: #313136;
   --c-main-out: #616161;
 
+  /* --c-trans-light: #00000015; */
   --c-trans-light: #00000015;
-  --c-trans-dark: #00000093;
 }
 /* ALL */
 body {
@@ -28,7 +28,7 @@ body {
 }
 .btn-primary:hover, .btn:active, .btn:first-child:active, .btn.active, .btn.show {
   background-color: var(--c-trans-light);
-  border-color: var(--c-trans-dark);
+  border-color: var(--c-main-font);
 }
 .dropdown-item.active, .dropdown-item:active {
   background-color: var(--c-main-dark);

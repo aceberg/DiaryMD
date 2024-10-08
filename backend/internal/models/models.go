@@ -2,18 +2,14 @@ package models
 
 // Conf - web gui config
 type Conf struct {
-	Host   string
-	Port   string
-	Colors ColorTheme
-	// Theme     string
-	// ColorMode string
-	// ColorMenu string
-	// ColorEdit string
-	// ColorBack string
+	Host     string
+	Port     string
+	Colors   ColorTheme
 	ConfPath string
 	DirPath  string
 	NodePath string
 	RepoPath string
+	BlogPath string
 }
 
 // ColorTheme - color theme

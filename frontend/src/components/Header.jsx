@@ -18,8 +18,8 @@ function Header() {
     <div class="col-md mt-4 mx-1">
     <div class='d-flex justify-content-between'>
       <div>
-        <span onClick={handleReload} class="shade-hover">DiaryMD</span>
-        {/* <span onClick={handleBlog} class="shade-hover mx-5">Blog</span> */}
+        <span onClick={handleReload} class="shade-hover rounded-2 p-2">DiaryMD</span>
+        <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Blog</span>
       </div>
       <Config></Config>
     </div>

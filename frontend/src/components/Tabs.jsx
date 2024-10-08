@@ -63,7 +63,7 @@ function Tabs() {
           >
             <button class="tab-main rounded-top" title={tab.Path}>
               <span class="mx-3">{tab.Name}</span>
-              <i class="bi bi-x tab-close" title='Close' onClick={handleClose}></i>
+              <i class="bi bi-x shade-hover rounded-2 p-1" title='Close' onClick={handleClose}></i>
             </button>
           </Show>
         }</For>

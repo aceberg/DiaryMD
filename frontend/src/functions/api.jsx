@@ -120,12 +120,21 @@ export const apiSaveTheme = async (newTheme) => {
   request.send(data);
 };
 
-export const apiSaveConfig = async (path) => {
+export const apiSaveConfig = async (conf) => {
 
   let data = new FormData();
-  data.set('path', path);
+  data.set('path', conf.RepoPath);
+  data.set('blog', conf.BlogPath);
 
   let request = new XMLHttpRequest();
   request.open("POST", api+'/api/config', true);
   request.send(data);
+};
+
+export const apiGetBlogJSON = async () => {
+
+  const url = api+'/api/blog';
+  const blog = await (await fetch(url)).json();
+
+  return JSON.parse(blog);
 };

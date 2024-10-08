@@ -27,6 +27,7 @@ func apiGetConfig(c *gin.Context) {
 func apiSetConfig(c *gin.Context) {
 
 	appConfig.RepoPath = c.PostForm("path")
+	appConfig.BlogPath = c.PostForm("blog")
 
 	conf.Write(appConfig)
 
@@ -81,6 +82,13 @@ func apiGetFile(c *gin.Context) {
 
 	f := getDirByID(allDirs, idStr)
 	file := repo.ReadFile(f.Path)
+
+	c.IndentedJSON(http.StatusOK, file)
+}
+
+func apiGetBlogJSON(c *gin.Context) {
+
+	file := repo.ReadFile(appConfig.BlogPath)
 
 	c.IndentedJSON(http.StatusOK, file)
 }

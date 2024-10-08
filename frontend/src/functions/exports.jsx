@@ -18,6 +18,7 @@ export const emptyDir = {
 
 const emptyConf = {
     RepoPath: '',
+    BlogPath: '',
 };
 
 export const [currentFile, setCurrentFile] = createSignal(emptyFile);
@@ -29,6 +30,8 @@ export const [currentMenu, setCurrentMenu] = createSignal([]);
 export const [currentConfig, setCurrentConfig] = createSignal(emptyConf);
 
 export const [currentBlog, setCurrentBlog] = createSignal(false);
+
+export const [currentBlogJSON, setCurrentBlogJSON] = createSignal({});
 
 export const [currentTabList, setCurrentTabList] = createSignal([]);
 
@@ -89,5 +92,5 @@ export function applyCurrentTheme() {
     document.documentElement.style.setProperty('--c-main-dark', currentTheme().Menu);
     document.documentElement.style.setProperty('--c-main-font', currentTheme().Font);
     document.documentElement.style.setProperty('--c-main-out', currentTheme().Outline);
-
+    document.documentElement.style.setProperty('--c-trans-light', currentTheme().Font+'20');
 };
