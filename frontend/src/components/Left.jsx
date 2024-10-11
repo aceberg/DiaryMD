@@ -2,7 +2,7 @@ import Menu from './Menu';
 import Search from './Search';
 import NewHomeSave from './NewHomeSave';
 import { getConfig, getDirByID, getDirsFromAPI, apiGetBlogJSON } from '../functions/api';
-import { setCurrentBlogJSON, setCurrentConfig, setCurrentDir, setCurrentMenu, setCurrentTags} from '../functions/exports';
+import { setCurrentBlogJSON, setCurrentConfig, setCurrentDir, setCurrentMenu,setCurrentTags } from '../functions/exports';
 import './Left.css';
 
 function Left() {  

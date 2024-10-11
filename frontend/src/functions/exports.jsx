@@ -1,4 +1,5 @@
 import { createSignal } from "solid-js";
+import { localGetFile, localGetTabs } from '../functions/local';
 
 export const emptyFile = {
     ID: 0,
@@ -21,7 +22,7 @@ const emptyConf = {
     BlogPath: '',
 };
 
-export const [currentFile, setCurrentFile] = createSignal(emptyFile);
+export const [currentFile, setCurrentFile] = createSignal(localGetFile());
 
 export const [currentDir, setCurrentDir] = createSignal(emptyDir);
 
@@ -35,4 +36,4 @@ export const [currentBlogJSON, setCurrentBlogJSON] = createSignal({});
 
 export const [currentTags, setCurrentTags] = createSignal([]);
 
-export const [currentTabList, setCurrentTabList] = createSignal([]);
+export const [currentTabList, setCurrentTabList] = createSignal(localGetTabs());

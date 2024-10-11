@@ -3,6 +3,7 @@ import { getFileByID } from '../functions/api';
 import { currentFile, setCurrentFile, emptyFile, setCurrentTabList, currentTabList } from "../functions/exports";
 import { setEditorValue } from './Editor';
 import { Show } from "solid-js";
+import { localSaveTabsFile } from "../functions/local";
 
 const updTabList = (curFile) => {
   let tabs = currentTabList();
@@ -17,7 +18,7 @@ const updTabList = (curFile) => {
       setCurrentTabList(tabs);
     }
   }
-
+  localSaveTabsFile(tabs, curFile);
   // console.log("TABS", tabs);
 
   return tabs;

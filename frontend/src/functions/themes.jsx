@@ -32,6 +32,14 @@ const nightTheme = {
     Edit: '#0f2c45',
     Outline: '#616161',
 };
+const greyTheme = {
+    Theme: 'grey',
+    Font: '#000000',
+    Menu: '#555753',
+    Back: '#888a85',
+    Edit: '#babdb6',
+    Outline: '#616161',
+};
 
 export const [currentTheme, setCurrentTheme] = createSignal(sandTheme);
 
@@ -40,6 +48,9 @@ export function applyCurrentTheme() {
     switch (currentTheme().Theme) {
         case 'dark':
             setCurrentTheme(darkTheme);
+            break;
+        case 'grey':
+            setCurrentTheme(greyTheme);
             break;
         case 'lake':
             setCurrentTheme(lakeTheme);
