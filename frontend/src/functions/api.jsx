@@ -1,4 +1,4 @@
-import { applyCurrentTheme, setCurrentTheme } from "./exports";
+import { applyCurrentTheme, setCurrentTheme } from "./themes";
 
 const api = 'http://0.0.0.0:8830';
 

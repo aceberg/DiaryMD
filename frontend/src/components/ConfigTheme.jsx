@@ -1,5 +1,5 @@
 import { apiSaveTheme } from "../functions/api";
-import { applyCurrentTheme, currentConfig, currentTheme, setCurrentTheme } from "../functions/exports";
+import { applyCurrentTheme, currentTheme, setCurrentTheme } from "../functions/themes";
 
 function ConfigTheme() {
 
