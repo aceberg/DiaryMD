@@ -1,16 +1,18 @@
 import { currentBlogJSON } from "../functions/exports";
+import BlogText from "./BlogText";
 
 function BlogMain() {
 
-  console.log("BLOG", currentBlogJSON());
-
   return (
-    <div>
+    <div class="mb-3">
       <For each={currentBlogJSON()}>{(b) =>
+      <div>
         <div class='menu-head d-flex justify-content-between'>
           <span class="fw-bold fs-5 p-2">{b.name}</span>
           <span class="fw-bold fs-5 p-2">{b.date}</span>
         </div>
+        <BlogText data={b.text}></BlogText>
+      </div>
       }</For>
     </div>
   );

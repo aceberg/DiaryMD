@@ -135,6 +135,32 @@ export const apiGetBlogJSON = async () => {
 
   const url = api+'/api/blog';
   const blog = await (await fetch(url)).json();
+  const jBlog = JSON.parse(blog);
 
-  return JSON.parse(blog);
+  let newBlog = []; 
+  let tags = [];
+  let a;
+  for (let i in jBlog) {
+    a = {};
+    a.date = jBlog[i].date;
+    a.path = jBlog[i].path;
+    a.name = jBlog[i].name;
+    a.tags = jBlog[i].tags;
+    a.text = await getFileByPath(jBlog[i].path);
+
+    tags.push(...a.tags);
+
+    newBlog[i] = a;
+  }
+  tags = [...new Set(tags)];
+  tags.sort();
+
+  return [newBlog, tags];
+};
+
+export const getFileByPath = async (path) => {
+  const url = api+'/api/filebypath?path='+path;
+  const file = await (await fetch(url)).json();
+
+  return file;
 };

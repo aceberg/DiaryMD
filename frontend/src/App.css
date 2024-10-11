@@ -41,6 +41,9 @@ body {
 .form-control::-moz-placeholder, .form-control::placeholder {
   color: var(--c-main-out);
 }
+a {
+  color: var(--c-main-font);
+}
 
 /* Transparant icon button */
 .shade-hover:hover {

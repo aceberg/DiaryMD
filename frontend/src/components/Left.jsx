@@ -2,7 +2,7 @@ import Menu from './Menu';
 import Search from './Search';
 import NewHomeSave from './NewHomeSave';
 import { getConfig, getDirByID, getDirsFromAPI, apiGetBlogJSON } from '../functions/api';
-import { setCurrentBlogJSON, setCurrentConfig, setCurrentDir, setCurrentMenu} from '../functions/exports';
+import { setCurrentBlogJSON, setCurrentConfig, setCurrentDir, setCurrentMenu, setCurrentTags} from '../functions/exports';
 import './Left.css';
 
 function Left() {  
@@ -11,7 +11,10 @@ function Left() {
     setCurrentConfig(await getConfig());
     setCurrentDir(await getDirByID(0));
     setCurrentMenu(await getDirsFromAPI(0));
-    setCurrentBlogJSON(await apiGetBlogJSON());
+    
+    const [blog, tags] = await apiGetBlogJSON();
+    setCurrentBlogJSON(blog);
+    setCurrentTags(tags);
   };
 
   setAtStart();

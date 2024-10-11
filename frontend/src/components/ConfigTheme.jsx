@@ -3,8 +3,6 @@ import { applyCurrentTheme, currentTheme, setCurrentTheme } from "../functions/t
 
 function ConfigTheme() {
 
-  console.log("Theme before:", currentTheme());
-
   const handleSave = async () => {
     const theme = document.getElementById("theme").value;
     const menu = document.getElementById("menu-color").value;
@@ -24,8 +22,6 @@ function ConfigTheme() {
 
     applyCurrentTheme();
     apiSaveTheme(currentTheme());
-
-    console.log("Theme:", currentTheme());
   };
 
   return (

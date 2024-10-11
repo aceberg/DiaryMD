@@ -157,7 +157,7 @@ func apiGetFileByPath(c *gin.Context) {
 
 	path := c.Query("path")
 
-	log.Println("PATH:", path)
+	// log.Println("PATH:", path)
 	file := repo.ReadFile(path)
 
 	c.IndentedJSON(http.StatusOK, file)

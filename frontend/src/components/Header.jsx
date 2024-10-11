@@ -1,3 +1,4 @@
+import { Show } from "solid-js";
 import { currentBlog, setCurrentBlog } from "../functions/exports";
 import Config from "./Config";
 import ConfigAbout from "./ConfigAbout";
@@ -19,7 +20,14 @@ function Header() {
     <div class='d-flex justify-content-between'>
       <div>
         <span onClick={handleReload} class="shade-hover rounded-2 p-2">DiaryMD</span>
-        <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Blog</span>
+        <Show
+          when={currentBlog()}
+          fallback={
+            <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Blog</span>
+          }
+        >
+          <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Edit</span>
+        </Show>
       </div>
       <Config></Config>
     </div>

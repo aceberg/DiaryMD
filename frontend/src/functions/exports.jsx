@@ -33,4 +33,6 @@ export const [currentBlog, setCurrentBlog] = createSignal(false);
 
 export const [currentBlogJSON, setCurrentBlogJSON] = createSignal({});
 
+export const [currentTags, setCurrentTags] = createSignal([]);
+
 export const [currentTabList, setCurrentTabList] = createSignal([]);
