@@ -76,16 +76,6 @@ func apiDirsInfo(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, dir)
 }
 
-func apiGetFile(c *gin.Context) {
-
-	idStr := c.Param("id")
-
-	f := getDirByID(allDirs, idStr)
-	file := repo.ReadFile(f.Path)
-
-	c.IndentedJSON(http.StatusOK, file)
-}
-
 func apiGetBlogJSON(c *gin.Context) {
 
 	file := repo.ReadFile(appConfig.BlogPath)
@@ -153,7 +143,7 @@ func apiSearch(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, dirs)
 }
 
-func apiGetFileByPath(c *gin.Context) {
+func apiGetFileText(c *gin.Context) {
 
 	path := c.Query("path")
 

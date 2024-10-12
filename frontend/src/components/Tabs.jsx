@@ -1,5 +1,5 @@
 import { createResource } from "solid-js";
-import { getFileByID } from '../functions/api';
+import { getFileByPath } from '../functions/api';
 import { currentFile, setCurrentFile, emptyFile, setCurrentTabList, currentTabList } from "../functions/exports";
 import { setEditorValue } from './Editor';
 import { Show } from "solid-js";
@@ -44,7 +44,7 @@ function Tabs() {
     // console.log("File", file);
     let fileText = '';
     if (file.ID !== 0) {
-      fileText = await getFileByID(file.ID);
+      fileText = await getFileByPath(file.Path);
     }
     setCurrentFile(file);
     setEditorValue(fileText);

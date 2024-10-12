@@ -1,13 +1,13 @@
 import { For, Show } from 'solid-js';
 import { setEditorValue } from './Editor';
-import { getDirsFromAPI, getDirByID, getFileByID } from '../functions/api';
+import { getDirsFromAPI, getDirByID, getFileByPath } from '../functions/api';
 import { currentDir, currentMenu, setCurrentDir, setCurrentFile, setCurrentMenu } from '../functions/exports';
 import MenuEdit from './MenuEdit';
 
 function Menu() {
 
   const handleFile = async (file) => {
-    const fileText = await getFileByID(file.ID);
+    const fileText = await getFileByPath(file.Path);
     setCurrentFile(file);
     setEditorValue(fileText);
   };

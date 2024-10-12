@@ -38,13 +38,6 @@ export const getDirByID = async (id) => {
   return dir;
 };
 
-export const getFileByID = async (id) => {
-  const url = api+'/api/file/'+id;
-  const file = await (await fetch(url)).json();
-
-  return file;
-};
-
 export const saveFileToAPI = async (path, text) => {
 
   let data = new FormData();
@@ -159,7 +152,7 @@ export const apiGetBlogJSON = async () => {
 };
 
 export const getFileByPath = async (path) => {
-  const url = api+'/api/filebypath?path='+path;
+  const url = api+'/api/file/text?path='+path;
   const file = await (await fetch(url)).json();
 
   return file;

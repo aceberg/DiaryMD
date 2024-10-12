@@ -54,14 +54,15 @@ func Gui(dirPath, nodePath string) {
 	router.GET("/", indexHandler) // index.go
 	router.StaticFS("/fs", http.FS(assetsFS))
 
-	router.GET("/api", apiHandler)                  // api.go
-	router.GET("/api/blog", apiGetBlogJSON)         // api.go
-	router.GET("/api/config", apiGetConfig)         // api.go
-	router.GET("/api/dirs/ls/:id", apiDirsLs)       // api.go
-	router.GET("/api/dirs/info/:id", apiDirsInfo)   // api.go
-	router.GET("/api/file/:id", apiGetFile)         // api.go
-	router.GET("/api/filebypath", apiGetFileByPath) // api.go
-	router.GET("/api/search/:id/:str", apiSearch)   // api.go
+	router.GET("/api", apiHandler)                // api.go
+	router.GET("/api/blog", apiGetBlogJSON)       // api.go
+	router.GET("/api/config", apiGetConfig)       // api.go
+	router.GET("/api/dirs/ls/:id", apiDirsLs)     // api.go
+	router.GET("/api/dirs/info/:id", apiDirsInfo) // api.go
+	// router.GET("/api/dir/list", apiDirPathLs)       // api.go
+	// router.GET("/api/dir/info", apiDirPathInfo)   // api.go
+	router.GET("/api/file/text", apiGetFileText)  // api.go
+	router.GET("/api/search/:id/:str", apiSearch) // api.go
 
 	router.POST("/api/config", apiSetConfig) // api.go
 	router.POST("/api/del", apiDelete)       // api.go

@@ -1,9 +1,10 @@
 import Menu from './Menu';
 import Search from './Search';
 import NewHomeSave from './NewHomeSave';
-import { getConfig, getDirByID, getDirsFromAPI, apiGetBlogJSON } from '../functions/api';
-import { setCurrentBlogJSON, setCurrentConfig, setCurrentDir, setCurrentMenu,setCurrentTags } from '../functions/exports';
+import { getConfig, getDirByID, getDirsFromAPI, apiGetBlogJSON, getFileByPath } from '../functions/api';
+import { currentFile, setCurrentBlogJSON, setCurrentConfig, setCurrentDir, setCurrentMenu,setCurrentTags } from '../functions/exports';
 import './Left.css';
+import { setEditorValue } from './Editor';
 
 function Left() {  
 
@@ -15,6 +16,7 @@ function Left() {
     const [blog, tags] = await apiGetBlogJSON();
     setCurrentBlogJSON(blog);
     setCurrentTags(tags);
+    setEditorValue(await getFileByPath(currentFile().Path));
   };
 
   setAtStart();
