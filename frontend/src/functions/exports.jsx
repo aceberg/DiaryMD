@@ -20,6 +20,7 @@ export const emptyDir = {
 const emptyConf = {
     RepoPath: '',
     BlogPath: '',
+    PageStep: 2,
 };
 
 export const [currentFile, setCurrentFile] = createSignal(localGetFile());
@@ -30,10 +31,13 @@ export const [currentMenu, setCurrentMenu] = createSignal([]);
 
 export const [currentConfig, setCurrentConfig] = createSignal(emptyConf);
 
+export const [currentTabList, setCurrentTabList] = createSignal(localGetTabs());
+
+// BLOG
 export const [currentBlog, setCurrentBlog] = createSignal(false);
 
 export const [currentBlogJSON, setCurrentBlogJSON] = createSignal({});
 
-export const [currentTags, setCurrentTags] = createSignal([]);
+export const [currentBlogPage, setCurrentBlogPage] = createSignal({});
 
-export const [currentTabList, setCurrentTabList] = createSignal(localGetTabs());
+export const [currentTags, setCurrentTags] = createSignal([]);

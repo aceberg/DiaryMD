@@ -1,10 +1,10 @@
-import { currentTags, setCurrentBlogJSON } from "../functions/exports";
-import { apiGetBlogJSON } from '../functions/api';
+import { currentTags, setCurrentBlogJSON, setCurrentBlogPage } from "../functions/exports";
+import { blogGetJSON, blogGetPage } from "../functions/blog";
 
 function BlogRight() {
 
   const handleTag = async (tag) => {
-    const [blog, _] = await apiGetBlogJSON();
+    const blog = await blogGetJSON();
 
     let found = [];
     for (let i in blog) {
@@ -13,6 +13,7 @@ function BlogRight() {
       }
     }
     setCurrentBlogJSON(found);
+    setCurrentBlogPage(await blogGetPage(0));
   };
 
   return (

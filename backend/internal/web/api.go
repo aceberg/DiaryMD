@@ -76,13 +76,6 @@ func apiDirsInfo(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, dir)
 }
 
-func apiGetBlogJSON(c *gin.Context) {
-
-	file := repo.ReadFile(appConfig.BlogPath)
-
-	c.IndentedJSON(http.StatusOK, file)
-}
-
 func apiFileSave(c *gin.Context) {
 
 	path := c.PostForm("path")

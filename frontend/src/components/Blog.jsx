@@ -1,8 +1,18 @@
 import BlogRight from "./BlogRight";
 import BlogMain from "./BlogMain";
 import BlogLeft from "./BlogLeft";
+import { blogGetJSON, blogGetPage, blogGetTags } from "../functions/blog";
+import { setCurrentBlogPage } from "../functions/exports";
 
 function Blog() {
+
+  const setAtStart = async () => {
+    await blogGetJSON();
+    blogGetTags();
+    setCurrentBlogPage(await blogGetPage(0));
+  };
+
+  setAtStart();
 
   return (
     <div class='row mt-4'>

@@ -1,5 +1,5 @@
 import { Show } from "solid-js";
-import { currentBlog, setCurrentBlog } from "../functions/exports";
+import { currentBlog, currentConfig, setCurrentBlog } from "../functions/exports";
 import Config from "./Config";
 import ConfigAbout from "./ConfigAbout";
 import ConfigSettings from "./ConfigSettings";
@@ -21,12 +21,16 @@ function Header() {
       <div>
         <span onClick={handleReload} class="shade-hover rounded-2 p-2">DiaryMD</span>
         <Show
-          when={currentBlog()}
-          fallback={
-            <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Blog</span>
-          }
+          when={currentConfig().BlogPath != ''}
         >
-          <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Edit</span>
+          <Show
+            when={currentBlog()}
+            fallback={
+              <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Blog</span>
+            }
+          >
+            <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Edit</span>
+          </Show>
         </Show>
       </div>
       <Config></Config>

@@ -28,15 +28,15 @@ function ConfigSettings() {
           <table class="table table-borderless">
             <tbody>
               <tr>
-                <td>Path to Main Dir</td>
+                <td>Path to repo</td>
                 <td>
                   <input class="form-control mt-2" id="path" value={currentConfig().RepoPath} placeholder="Path to repo"></input>
                 </td>
               </tr>
               <tr>
-                <td>Path to blog.yaml</td>
+                <td>Path to blog</td>
                 <td>
-                  <input class="form-control mt-2" id="blog" value={currentConfig().BlogPath} placeholder="Path to blog.yaml"></input>
+                  <input class="form-control mt-2" id="blog" value={currentConfig().BlogPath} placeholder="Path to blog"></input>
                 </td>
               </tr>
             </tbody>
