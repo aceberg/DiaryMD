@@ -6,7 +6,7 @@ function BlogLeft() {
 
   return (
     <div>
-      <p>Left</p>
+      <p></p>
     </div>
   );
 }

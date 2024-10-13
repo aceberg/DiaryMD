@@ -35,9 +35,8 @@ export const [currentTabList, setCurrentTabList] = createSignal(localGetTabs());
 
 // BLOG
 export const [currentBlog, setCurrentBlog] = createSignal(false);
-
 export const [currentBlogJSON, setCurrentBlogJSON] = createSignal({});
-
 export const [currentBlogPage, setCurrentBlogPage] = createSignal({});
+export const [currentPageNum, setCurrentPageNum] = createSignal(0);
 
 export const [currentTags, setCurrentTags] = createSignal([]);

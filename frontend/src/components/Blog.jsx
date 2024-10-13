@@ -16,13 +16,13 @@ function Blog() {
 
   return (
     <div class='row mt-4'>
-      <div class="col-md-2">
+      <div class="col-md-1">
         <BlogLeft></BlogLeft>
       </div>
       <div class="col-md-9">
         <BlogMain></BlogMain>
       </div>
-      <div class="col-md-1">
+      <div class="col-md-2">
         <BlogRight></BlogRight>
       </div>
     </div>

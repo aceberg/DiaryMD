@@ -63,6 +63,9 @@ function Tabs() {
             }
           >
             <button class="tab-main rounded-top" title={tab.Path}>
+              {/* <Show
+                when={f.Unsaved}
+                ><p>U</p></Show> */}
               <span class="mx-3">{tab.Name}</span>
               <i class="bi bi-x shade-hover rounded-2 p-1" title='Close' onClick={handleClose}></i>
             </button>

@@ -1,5 +1,5 @@
 import { getFileByPath } from "./api";
-import { currentBlogJSON, currentConfig, setCurrentBlogJSON, setCurrentBlogPage, setCurrentTags } from "./exports";
+import { currentBlogJSON, currentConfig, setCurrentBlogJSON, setCurrentPageNum, setCurrentTags } from "./exports";
 
 export const blogGetJSON = async () => {
     
@@ -28,14 +28,28 @@ export const blogGetTags = () => {
 };
 
 export const blogGetPage = async (page) => {
-    
   let displayBlog = []; 
   let blog = currentBlogJSON();
+  const len = blog.length;
+  // const step = currentConfig().PageStep;
+  const step = 3;
 
-  for (let i in blog) {
+  let start = step * page;
+  let end = start + step;
+
+  if (start >= len) {
+    start = 0;
+    end = step;
+    setCurrentPageNum(0);
+  }
+  if (end >= len) {
+    end = len;
+  }
+
+  for (let i = start; i < end; i++) {
 
     blog[i].text = await getFileByPath(currentConfig().BlogPath+blog[i].path);
-    displayBlog[i] = blog[i];
+    displayBlog.push(blog[i]);
   }
 
   return displayBlog;
