@@ -3,6 +3,7 @@ package web
 import (
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 
@@ -28,6 +29,8 @@ func apiSetConfig(c *gin.Context) {
 
 	appConfig.RepoPath = c.PostForm("path")
 	appConfig.BlogPath = c.PostForm("blog")
+	step := c.PostForm("step")
+	appConfig.PageStep, _ = strconv.Atoi(step)
 
 	conf.Write(appConfig)
 

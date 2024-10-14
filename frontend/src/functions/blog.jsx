@@ -31,8 +31,7 @@ export const blogGetPage = async (page) => {
   let displayBlog = []; 
   let blog = currentBlogJSON();
   const len = blog.length;
-  // const step = currentConfig().PageStep;
-  const step = 3;
+  const step = currentConfig().PageStep;
 
   let start = step * page;
   let end = start + step;

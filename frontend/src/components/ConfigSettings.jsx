@@ -6,12 +6,12 @@ function ConfigSettings() {
   const handleSave = async () => {
     const path = document.getElementById("path").value;
     const blog = document.getElementById("blog").value;
+    const step = document.getElementById("step").value;
 
-    setCurrentConfig({RepoPath: path,BlogPath: blog});
-    apiSaveConfig({RepoPath: path,BlogPath: blog});
+    setCurrentConfig({RepoPath: path,BlogPath: blog,PageStep: step});
+    apiSaveConfig({RepoPath: path,BlogPath: blog,PageStep: step});
 
-    console.log("Path:", path);
-    console.log("Blog:", blog);
+    console.log("New config:", currentConfig());
   };
 
   return (
@@ -37,6 +37,12 @@ function ConfigSettings() {
                 <td>Path to blog</td>
                 <td>
                   <input class="form-control mt-2" id="blog" value={currentConfig().BlogPath} placeholder="Path to blog"></input>
+                </td>
+              </tr>
+              <tr>
+                <td>Blog page step</td>
+                <td>
+                  <input class="form-control mt-2" id="step" value={currentConfig().PageStep} placeholder="Blog page step" type="number"></input>
                 </td>
               </tr>
             </tbody>

@@ -119,6 +119,7 @@ export const apiSaveConfig = async (conf) => {
   let data = new FormData();
   data.set('path', conf.RepoPath);
   data.set('blog', conf.BlogPath);
+  data.set('step', conf.PageStep);
 
   let request = new XMLHttpRequest();
   request.open("POST", api+'/api/config', true);

@@ -10,6 +10,7 @@ type Conf struct {
 	NodePath string
 	RepoPath string
 	BlogPath string
+	PageStep int
 }
 
 // ColorTheme - color theme
