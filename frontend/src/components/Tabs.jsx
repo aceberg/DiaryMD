@@ -10,6 +10,7 @@ const updTabList = (curFile) => {
 
   if (curFile.Name == '') {
     // console.log("Remove from Tabs", curFile);
+    setCurrentFile(emptyFile);
     tabs = removeFromArray(tabs, curFile);
     setCurrentTabList(tabs);
   } else {
@@ -41,7 +42,7 @@ function Tabs() {
   };
 
   const handleFile = async (file) => {
-    // console.log("File", file);
+    // console.log("Tab clicked", file);
     let fileText = '';
     if (file.Name !== '') {
       fileText = await getFileByPath(file.Path);

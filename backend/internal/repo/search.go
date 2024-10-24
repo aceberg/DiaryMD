@@ -41,7 +41,6 @@ func recursSearch(path, searchStr string) {
 			if strings.Contains(strings.ToLower(fileStr), strings.ToLower(searchStr)) {
 
 				dir = formDir(v, path)
-				dir.Parent = 0
 				foundFiles = append(foundFiles, dir)
 			}
 		} else {
@@ -55,6 +54,7 @@ func formDir(file os.FileInfo, path string) (dir models.DirsFiles) {
 	dir.Name = file.Name()
 	dir.IsDir = file.IsDir()
 	dir.Path = path + "/" + dir.Name
+	dir.UpPath = path
 
 	return dir
 }

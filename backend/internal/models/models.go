@@ -25,10 +25,8 @@ type ColorTheme struct {
 
 // DirsFiles - list dir results
 type DirsFiles struct {
-	ID     int
 	Name   string
 	Path   string
 	IsDir  bool
-	Parent int
 	UpPath string
 }

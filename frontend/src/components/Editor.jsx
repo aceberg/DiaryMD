@@ -2,6 +2,7 @@ import { createSignal, onMount } from "solid-js";
 import EasyMDE from "easymde";
 import { saveFileToAPI } from "../functions/api";
 import "easymde/dist/easymde.min.css";
+import "font-awesome/css/font-awesome.min.css"
 import { currentFile } from "../functions/exports";
 
 let easyMDE;
@@ -28,7 +29,7 @@ function Editor() {
   onMount(() => {
     easyMDE = new EasyMDE({
       element: textareaRef,
-      autoDownloadFontAwesome: true, 
+      autoDownloadFontAwesome: false, 
       lineNumbers: true,
       spellChecker: false,
       toolbar: ["bold", "italic", "strikethrough", "heading", "code", "quote", "unordered-list", "ordered-list", "link", "image", "horizontal-rule", "preview", "side-by-side", "fullscreen", "guide"],

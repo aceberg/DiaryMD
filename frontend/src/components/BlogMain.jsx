@@ -1,10 +1,18 @@
+import { getDirInfo, getFileByPath } from "../functions/api";
 import { blogGetPage } from "../functions/blog";
-import { currentBlog, currentBlogPage, currentPageNum, setCurrentBlog, setCurrentBlogPage, setCurrentPageNum } from "../functions/exports";
+import { currentBlog, currentBlogPage, currentConfig, currentPageNum, setCurrentBlog, setCurrentBlogPage, setCurrentFile, setCurrentPageNum } from "../functions/exports";
 import BlogText from "./BlogText";
+import { setEditorValue } from "./Editor";
 
 function BlogMain() {
 
   const handleEdit = async (blog) => {
+
+    const path = currentConfig().BlogPath + blog.path;
+    const fileText = await getFileByPath(path);
+    
+    setCurrentFile(await getDirInfo(path));
+    setEditorValue(fileText);
 
     setCurrentBlog(!currentBlog());
   };
