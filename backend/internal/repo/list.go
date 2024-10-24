@@ -1,15 +1,15 @@
 package repo
 
 import (
-	"hash/fnv"
 	"os"
+	"path/filepath"
 
 	"github.com/aceberg/DiaryMD/internal/check"
 	"github.com/aceberg/DiaryMD/internal/models"
 )
 
-// List - list directory
-func List(path string, lastID int) (dirs []models.DirsFiles) {
+// ListPath - list directory
+func ListPath(path string) (dirs []models.DirsFiles) {
 	var dir models.DirsFiles
 
 	f, err := os.Open(path)
@@ -18,26 +18,29 @@ func List(path string, lastID int) (dirs []models.DirsFiles) {
 	files, err := f.Readdir(0)
 	check.IfError(err)
 
-	for _, v := range files {
+	for _, file := range files {
 
-		dir = formDir(v, path)
-		dir.Parent = lastID
+		dir.Name = file.Name()
+		dir.IsDir = file.IsDir()
+		dir.Path = path + "/" + dir.Name
+		dir.UpPath = path
+
 		dirs = append(dirs, dir)
 	}
 
 	return dirs
 }
 
-func formDir(file os.FileInfo, path string) (dir models.DirsFiles) {
+// Info - info about directory
+func Info(path string) (file models.DirsFiles) {
 
-	dir.Name = file.Name()
-	dir.IsDir = file.IsDir()
-	dir.Path = path + "/" + dir.Name
+	fInfo, err := os.Stat(path)
+	check.IfError(err)
 
-	h := fnv.New32a()
-	h.Write([]byte(dir.Path))
+	file.Name = filepath.Base(path)
+	file.IsDir = fInfo.IsDir()
+	file.Path = path
+	file.UpPath = filepath.Dir(path)
 
-	dir.ID = int(h.Sum32())
-
-	return dir
+	return file
 }

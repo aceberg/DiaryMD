@@ -2,19 +2,17 @@ import { createSignal } from "solid-js";
 import { localGetFile, localGetTabs } from '../functions/local';
 
 export const emptyFile = {
-    ID: 0,
     Name: '',
     Path: '',
     IsDir: false,
-    Parent: 0,
+    UpPath: '',
 };
 
 export const emptyDir = {
-    ID: 0,
     Name: '',
     Path: '',
     IsDir: true,
-    Parent: 0,
+    UpPath: '',
 };
 
 const emptyConf = {

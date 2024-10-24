@@ -1,6 +1,6 @@
 import { For, Show } from 'solid-js';
 import { setEditorValue } from './Editor';
-import { getDirsFromAPI, getDirByID, getFileByPath } from '../functions/api';
+import { getFileByPath, getDirList, getDirInfo } from '../functions/api';
 import { currentDir, currentMenu, setCurrentDir, setCurrentFile, setCurrentMenu } from '../functions/exports';
 import MenuEdit from './MenuEdit';
 
@@ -13,15 +13,15 @@ function Menu() {
   };
 
   const handleDir = async (dir) => {
-    setCurrentMenu(await getDirsFromAPI(dir.ID));
-    const cd = await getDirByID(dir.ID);
+    setCurrentMenu(await getDirList(dir.Path));
+    const cd = await getDirInfo(dir.Path);
     setCurrentDir(cd);
   };
   
   return (
     <div>
       <For each={[currentDir()]}>{(ld) =>
-        <p class='dir mx-3 mt-3' onClick={[handleDir, {ID: ld.Parent}]}>
+        <p class='dir mx-3 mt-3' onClick={[handleDir, {Path: ld.UpPath}]}>
           <i class="bi bi-folder"></i>   {ld.Name}
         </p>
       }</For>

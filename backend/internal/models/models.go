@@ -30,4 +30,5 @@ type DirsFiles struct {
 	Path   string
 	IsDir  bool
 	Parent int
+	UpPath string
 }

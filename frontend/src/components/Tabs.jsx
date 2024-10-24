@@ -8,7 +8,7 @@ import { localSaveTabsFile } from "../functions/local";
 const updTabList = (curFile) => {
   let tabs = currentTabList();
 
-  if (curFile.ID == 0) {
+  if (curFile.Name == '') {
     // console.log("Remove from Tabs", curFile);
     tabs = removeFromArray(tabs, curFile);
     setCurrentTabList(tabs);
@@ -43,7 +43,7 @@ function Tabs() {
   const handleFile = async (file) => {
     // console.log("File", file);
     let fileText = '';
-    if (file.ID !== 0) {
+    if (file.Name !== '') {
       fileText = await getFileByPath(file.Path);
     }
     setCurrentFile(file);

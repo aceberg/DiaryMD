@@ -1,12 +1,11 @@
-import { deleteFileOrDir, renameFileOrDir } from "../functions/api";
+import { deleteFileOrDir, getDirList, renameFileOrDir } from "../functions/api";
 import { currentDir, setCurrentMenu} from '../functions/exports';
-import { getDirsFromAPI } from "../functions/api";
 
 function MenuEdit(props) {
 
-  const targetID = '#modal-'+props.data.ID;
-  const modalID = 'modal-'+props.data.ID;
-  const pathID = 'path-'+props.data.ID;
+  const targetID = '#modal-'+props.data.Name;
+  const modalID = 'modal-'+props.data.Name;
+  const pathID = 'path-'+props.data.Name;
 
   const handleEdit = (dir) => {
     console.log('Edit:', dir);
@@ -15,7 +14,7 @@ function MenuEdit(props) {
   const handleDelete = async (dir) => {
     console.log('Delete:', dir);
     await deleteFileOrDir(dir.Path);
-    setCurrentMenu(await getDirsFromAPI(currentDir().ID));
+    setCurrentMenu(await getDirList(currentDir().Path));
   };
 
   const handleSave = async (dir) => {
@@ -23,7 +22,7 @@ function MenuEdit(props) {
     const pathVal = document.getElementById(pathID).value;
     console.log('New path: ', pathVal);
     await renameFileOrDir(dir.Path, pathVal);
-    setCurrentMenu(await getDirsFromAPI(currentDir().ID));
+    setCurrentMenu(await getDirList(currentDir().Path));
   };
 
   return (

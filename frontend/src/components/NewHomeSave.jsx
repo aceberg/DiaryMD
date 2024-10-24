@@ -1,42 +1,41 @@
 import { saveFile } from './Editor';
 import { currentDir, currentFile, setCurrentDir, setCurrentFile, setCurrentMenu} from '../functions/exports';
-import { getDirByID, newFile, newDir, getDirsFromAPI } from '../functions/api';
+import { newFile, newDir, getDirList, getDirInfo } from '../functions/api';
 
 function NewHomeSave() {
 
   const handleDir = async () => {
     const path = currentDir().Path+'/NewDir';
-    console.log("New dir path: ", path);
+    // console.log("New dir path: ", path);
     newDir(path);
-    setCurrentMenu(await getDirsFromAPI(currentDir().ID));
+    setCurrentMenu(await getDirList(currentDir().Path));
   };
 
   const handleFile = async () => {
     const path = currentDir().Path+'/NewFile';
-    console.log("New file path: ", path);
+    // console.log("New file path: ", path);
     newFile(path);
-    setCurrentMenu(await getDirsFromAPI(currentDir().ID));
+    setCurrentMenu(await getDirList(currentDir().Path));
   };
 
   const handleHome = async () => {
-    setCurrentDir(await getDirByID(0));
-    console.log("Home clicked", currentDir());
-    setCurrentMenu(await getDirsFromAPI(0));
+    setCurrentDir(await getDirInfo(""));
+    // console.log("Home clicked", currentDir());
+    setCurrentMenu(await getDirList(""));
   };
 
   const handleSave = async () => {
     if (currentFile().Path == '') {
       const path = currentDir().Path+'/NewFile';
-      console.log("New file path: ", path);
+      // console.log("New file path: ", path);
       newFile(path);
       setCurrentFile({
-        ID: 0,
         Name: '',
         Path: path,
         IsDir: false,
-        Parent: 0,
+        UpPath: currentDir().Path,
       });
-      setCurrentMenu(await getDirsFromAPI(currentDir().ID));
+      setCurrentMenu(await getDirList(currentDir().Path));
     }
     saveFile();
   };

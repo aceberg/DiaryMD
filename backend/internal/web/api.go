@@ -51,30 +51,28 @@ func apiSetTheme(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, "OK")
 }
 
-func apiDirsLs(c *gin.Context) {
+func apiDirList(c *gin.Context) {
 	var curDirs []models.DirsFiles
 
-	idStr := c.Param("id")
-
-	// TODO: potential problem here (map instead of slice?)
-	if idStr == "0" {
-		allDirs = repo.List(appConfig.RepoPath, 0)
-		curDirs = allDirs
+	path := c.Query("path")
+	if path == "" {
+		curDirs = repo.ListPath(appConfig.RepoPath)
 	} else {
-		d := getDirByID(allDirs, idStr)
-		curDirs = repo.List(d.Path, d.ID)
-		allDirs = append(allDirs, curDirs...)
+		curDirs = repo.ListPath(path)
 	}
 
 	c.IndentedJSON(http.StatusOK, curDirs)
 }
 
-func apiDirsInfo(c *gin.Context) {
+func apiDirInfo(c *gin.Context) {
 	var dir models.DirsFiles
 
-	idStr := c.Param("id")
-
-	dir = getDirByID(allDirs, idStr)
+	path := c.Query("path")
+	if path == "" {
+		dir = repo.Info(appConfig.RepoPath)
+	} else {
+		dir = repo.Info(path)
+	}
 
 	c.IndentedJSON(http.StatusOK, dir)
 }
@@ -126,15 +124,10 @@ func apiMove(c *gin.Context) {
 
 func apiSearch(c *gin.Context) {
 
-	idStr := c.Param("id")
-	str := c.Param("str")
+	path := c.Query("path")
+	str := c.Query("str")
 
-	d := getDirByID(allDirs, idStr)
-	dirs := repo.Search(d.Path, str)
-
-	allDirs = append(allDirs, dirs...)
-
-	// log.Println("ID, str, d", idStr, str, d)
+	dirs := repo.Search(path, str)
 
 	c.IndentedJSON(http.StatusOK, dirs)
 }

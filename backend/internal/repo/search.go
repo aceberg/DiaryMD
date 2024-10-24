@@ -49,3 +49,12 @@ func recursSearch(path, searchStr string) {
 		}
 	}
 }
+
+func formDir(file os.FileInfo, path string) (dir models.DirsFiles) {
+
+	dir.Name = file.Name()
+	dir.IsDir = file.IsDir()
+	dir.Path = path + "/" + dir.Name
+
+	return dir
+}

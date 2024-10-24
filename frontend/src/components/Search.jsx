@@ -7,8 +7,8 @@ function Search() {
     if (event.key === "Enter") {
       const search = document.getElementById("search").value;
       if (search != '') {
-        const dirs = await apiSearch(currentDir().ID, search);
-        console.log("Search:", dirs);
+        const dirs = await apiSearch(currentDir().Path, search);
+        // console.log("Search:", dirs);
         setCurrentMenu(dirs);
         document.getElementById("search").value = '';
       }

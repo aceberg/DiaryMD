@@ -1,4 +1,4 @@
-import { currentConfig } from "./exports";
+
 import { applyCurrentTheme, setCurrentTheme } from "./themes";
 
 const api = 'http://0.0.0.0:8830';
@@ -18,25 +18,6 @@ export const getConfig = async () => {
   applyCurrentTheme();
 
   return conf;
-};
-
-export const getDirsFromAPI = async (id) => {
-  const url = api+'/api/dirs/ls/'+id;
-  const dirsAndFiles = await (await fetch(url)).json();
-
-  if (dirsAndFiles && dirsAndFiles.length > 0) {
-    dirsAndFiles.sort((a, b) => a.Name > b.Name);
-    dirsAndFiles.sort((a, b) => a.IsDir < b.IsDir);
-  }
-
-  return dirsAndFiles;
-};
-
-export const getDirByID = async (id) => {
-  const url = api+'/api/dirs/info/'+id;
-  const dir = await (await fetch(url)).json();
-
-  return dir;
 };
 
 export const saveFileToAPI = async (path, text) => {
@@ -91,9 +72,9 @@ export const renameFileOrDir = async (path, newPath) => {
   request.send(data);
 };
 
-export const apiSearch = async (id, str) => {
+export const apiSearch = async (path, str) => {
 
-  const url = api+'/api/search/'+id+'/'+str;
+  const url = api+'/api/search?str='+str+'&path='+path;
   const dirs = await (await fetch(url)).json();
 
   return dirs;
@@ -131,4 +112,23 @@ export const getFileByPath = async (path) => {
   const file = await (await fetch(url)).json();
 
   return file;
+};
+
+export const getDirList = async (path) => {
+  const url = api+'/api/dir/list?path='+path;
+  const dirsAndFiles = await (await fetch(url)).json();
+
+  if (dirsAndFiles && dirsAndFiles.length > 0) {
+    dirsAndFiles.sort((a, b) => a.Name > b.Name);
+    dirsAndFiles.sort((a, b) => a.IsDir < b.IsDir);
+  }
+
+  return dirsAndFiles;
+};
+
+export const getDirInfo = async (path) => {
+  const url = api+'/api/dir/info?path='+path;
+  const dir = await (await fetch(url)).json();
+
+  return dir;
 };
