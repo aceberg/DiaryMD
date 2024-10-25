@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Installed `font-awesome` locally
 - Blog `Edit` option
+- Unsaved balloon on `Tab`
 
 ### Changed
 - Removed `ID`s, now all components use `Path` instead

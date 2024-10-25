@@ -1,6 +1,6 @@
 import { createResource } from "solid-js";
 import { getFileByPath } from '../functions/api';
-import { currentFile, setCurrentFile, emptyFile, setCurrentTabList, currentTabList } from "../functions/exports";
+import { currentFile, setCurrentFile, emptyFile, setCurrentTabList, currentTabList, currentUnsaved } from "../functions/exports";
 import { setEditorValue } from './Editor';
 import { Show } from "solid-js";
 import { localSaveTabsFile } from "../functions/local";
@@ -59,15 +59,17 @@ function Tabs() {
             when={f.Path == tab.Path}
             fallback={
               <button class="tab rounded-top" title={tab.Path}>
-                <span class="mx-3" onClick={[handleFile, tab]}>{tab.Name}</span>
+                <span class="mx-2" onClick={[handleFile, tab]}>{tab.Name}</span>
               </button>
             }
           >
             <button class="tab-main rounded-top" title={tab.Path}>
-              {/* <Show
-                when={f.Unsaved}
-                ><p>U</p></Show> */}
-              <span class="mx-3">{tab.Name}</span>
+              <Show
+                when={currentUnsaved()}
+                >
+                  <i class="bi bi-balloon p-1" title='Unsaved'></i>
+                </Show>
+              <span class="mx-2">{tab.Name}</span>
               <i class="bi bi-x shade-hover rounded-2 p-1" title='Close' onClick={handleClose}></i>
             </button>
           </Show>

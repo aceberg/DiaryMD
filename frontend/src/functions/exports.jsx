@@ -31,6 +31,8 @@ export const [currentConfig, setCurrentConfig] = createSignal(emptyConf);
 
 export const [currentTabList, setCurrentTabList] = createSignal(localGetTabs());
 
+export const [currentUnsaved, setCurrentUnsaved] = createSignal(false);
+
 // BLOG
 export const [currentBlog, setCurrentBlog] = createSignal(false);
 export const [currentBlogJSON, setCurrentBlogJSON] = createSignal({});

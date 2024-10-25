@@ -1,16 +1,18 @@
 import { createSignal, onMount } from "solid-js";
+import "easymde/dist/easymde.min.css";
 import EasyMDE from "easymde";
 import { saveFileToAPI } from "../functions/api";
-import "easymde/dist/easymde.min.css";
-import "font-awesome/css/font-awesome.min.css"
-import { currentFile } from "../functions/exports";
+import { currentFile, setCurrentUnsaved } from "../functions/exports";
 
 let easyMDE;
 let fileText;
+let savedText;
 
 export function setEditorValue(newText) {
   if (easyMDE) {
     easyMDE.value(newText);
+    savedText = newText;
+    setCurrentUnsaved(false);
   } else {
     console.error("EasyMDE instance is not available.");
   }
@@ -18,6 +20,8 @@ export function setEditorValue(newText) {
 
 export function saveFile() {
   console.log('Save file', currentFile());
+  savedText = fileText;
+  setCurrentUnsaved(false);
   saveFileToAPI(currentFile().Path, fileText);
 }
 
@@ -38,6 +42,12 @@ function Editor() {
     easyMDE.codemirror.on("change", () => {
       setMarkdown(easyMDE.value()); 
       fileText = markdown();
+
+      if (fileText != savedText) {
+        setCurrentUnsaved(true);
+      } else {
+        setCurrentUnsaved(false);
+      }
     });
   });
 
