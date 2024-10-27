@@ -4,9 +4,8 @@ import Config from "./Config";
 import ConfigAbout from "./ConfigAbout";
 import ConfigSettings from "./ConfigSettings";
 import ConfigTheme from "./ConfigTheme";
-import { allWorkSpaces, setNowWorkSpace } from "../functions/workspaces";
-import { initWorkSpace } from "../functions/init";
 import WorkSpaces from "./WorkSpaces";
+import { nowWorkSpace } from "../functions/workspaces";
 
 function Header() {
 
@@ -21,22 +20,29 @@ function Header() {
   return (
     <div class="col-md mt-4 mx-1">
     <div class='d-flex justify-content-between'>
-      <WorkSpaces></WorkSpaces>
-      <div>
-        <span onClick={[handleReload]} class="shade-hover rounded-2 p-2">DiaryMD</span>
-        <Show
-          when={currentConfig().BlogPath != ''}
-        >
+      <div class='d-flex justify-content-left'>
+        <WorkSpaces></WorkSpaces>
+        <div>
+          <span onClick={[handleReload]} class="shade-hover rounded-2 p-2 mx-5" title="Reload">DiaryMD</span>
           <Show
-            when={currentBlog()}
-            fallback={
-              <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Blog</span>
-            }
+            when={currentConfig().BlogPath != ''}
           >
-            <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Edit</span>
+            <Show
+              when={currentBlog()}
+              fallback={
+                <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Blog</span>
+              }
+            >
+              <span onClick={handleBlog} class="shade-hover rounded-2 p-2 mx-5">Edit</span>
+            </Show>
           </Show>
-        </Show>
+        </div>
       </div>
+      <Show
+        when={nowWorkSpace() != null}
+      >
+        <span class="shade-hover rounded-2 p-2">{nowWorkSpace().Name}</span>
+      </Show>
       <Config></Config>
     </div>
     <ConfigSettings></ConfigSettings>

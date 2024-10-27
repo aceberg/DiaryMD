@@ -17,6 +17,8 @@ export function editWorkSpace(name, wsp) {
         } 
     }
     newAll.push(wsp);
+    newAll.sort((a, b) => a.Name < b.Name ? -1 : 1);
+    
     setAllWorkSpaces(newAll);
     wspChanged = true;
 }
