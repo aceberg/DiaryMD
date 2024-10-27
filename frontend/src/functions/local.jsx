@@ -1,13 +1,29 @@
+import { editWorkSpace, nowWorkSpace } from "./workspaces";
 
 export function localSaveTabsFile(tabs, file) {
 
-    localStorage.setItem("tabs", JSON.stringify(tabs));
-    localStorage.setItem("currentFile", JSON.stringify(file));
+    let nowWSP = nowWorkSpace();
+    if (nowWSP != null) {
+        nowWSP.Tabs = tabs;
+        nowWSP.CurFile = file;
+
+        editWorkSpace(nowWSP.Name, nowWSP);
+
+    } else {
+        localStorage.setItem("tabs", JSON.stringify(tabs));
+        localStorage.setItem("currentFile", JSON.stringify(file));
+    }
 }
 
 export function localGetTabs() {
 
-    const tabs = JSON.parse(localStorage.getItem("tabs"));
+    let tabs = [];
+    let nowWSP = nowWorkSpace();
+    if (nowWSP != null) {
+        tabs = nowWSP.Tabs;
+    } else {
+        tabs = JSON.parse(localStorage.getItem("tabs"));
+    }
 
     if (tabs == null) {
         return [];
@@ -18,7 +34,14 @@ export function localGetTabs() {
 
 export function localGetFile() {
 
-    const file = JSON.parse(localStorage.getItem("currentFile"));
+    let file = {};
+    let nowWSP = nowWorkSpace();
+    
+    if (nowWSP != null) {
+        file = nowWSP.CurFile;
+    } else {
+        file = JSON.parse(localStorage.getItem("currentFile"));
+    }
 
     if (file == null) {
         return {};

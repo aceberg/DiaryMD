@@ -34,7 +34,7 @@ func Gui(dirPath, nodePath string) {
 
 	appConfig.DirPath = dirPath
 	appConfig.ConfPath = confPath
-	appConfig.NodePath = nodePath
+	appConfig.WsPath = dirPath + "/workspaces.yaml"
 
 	log.Println("INFO: starting web gui with config", appConfig.ConfPath)
 
@@ -59,14 +59,16 @@ func Gui(dirPath, nodePath string) {
 	router.GET("/api/dir/info", apiDirInfo)      // api.go
 	router.GET("/api/file/text", apiGetFileText) // api.go
 	router.GET("/api/search", apiSearch)         // api.go
+	router.GET("/api/workspaces", apiGetWork)    // api.go
 
-	router.POST("/api/config", apiSetConfig) // api.go
-	router.POST("/api/del", apiDelete)       // api.go
-	router.POST("/api/file", apiFileSave)    // api.go
-	router.POST("/api/move", apiMove)        // api.go
-	router.POST("/api/new/file", apiNewFile) // api.go
-	router.POST("/api/new/dir", apiNewDir)   // api.go
-	router.POST("/api/theme", apiSetTheme)   // api.go
+	router.POST("/api/config", apiSetConfig)   // api.go
+	router.POST("/api/del", apiDelete)         // api.go
+	router.POST("/api/file", apiFileSave)      // api.go
+	router.POST("/api/move", apiMove)          // api.go
+	router.POST("/api/new/file", apiNewFile)   // api.go
+	router.POST("/api/new/dir", apiNewDir)     // api.go
+	router.POST("/api/theme", apiSetTheme)     // api.go
+	router.POST("/api/workspaces", apiSetWork) // api.go
 
 	err := router.Run(address)
 	check.IfError(err)

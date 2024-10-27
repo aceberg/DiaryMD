@@ -1,5 +1,5 @@
 import { saveFile } from './Editor';
-import { currentDir, currentFile, setCurrentDir, setCurrentFile, setCurrentMenu} from '../functions/exports';
+import { currentConfig, currentDir, currentFile, setCurrentDir, setCurrentFile, setCurrentMenu} from '../functions/exports';
 import { newFile, newDir, getDirList, getDirInfo } from '../functions/api';
 
 function NewHomeSave() {
@@ -19,9 +19,9 @@ function NewHomeSave() {
   };
 
   const handleHome = async () => {
-    setCurrentDir(await getDirInfo(""));
+    setCurrentDir(await getDirInfo(currentConfig().RepoPath));
     // console.log("Home clicked", currentDir());
-    setCurrentMenu(await getDirList(""));
+    setCurrentMenu(await getDirList(currentConfig().RepoPath));
   };
 
   const handleSave = async () => {

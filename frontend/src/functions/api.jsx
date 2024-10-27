@@ -7,14 +7,7 @@ export const getConfig = async () => {
   const url = api+'/api/config';
   const conf = await (await fetch(url)).json();
 
-  setCurrentTheme({
-    Theme: conf.Colors.Theme,
-    Menu: conf.Colors.Menu,
-    Back: conf.Colors.Back,
-    Edit: conf.Colors.Edit,
-    Font: conf.Colors.Font,
-    Outline: conf.Colors.Outline,
-  });
+  setCurrentTheme(conf.Colors);
   applyCurrentTheme();
 
   return conf;
@@ -131,4 +124,21 @@ export const getDirInfo = async (path) => {
   const dir = await (await fetch(url)).json();
 
   return dir;
+};
+
+export const getWorkSpaces = async () => {
+  const url = api+'/api/workspaces';
+  const wsps = await (await fetch(url)).json();
+
+  return wsps;
+};
+
+export const apiSaveWorkSpaces = async (wsps) => {
+
+  let data = new FormData();
+  data.set('workspaces', JSON.stringify(wsps));
+
+  let request = new XMLHttpRequest();
+  request.open("POST", api+'/api/workspaces', true);
+  request.send(data);
 };

@@ -4,22 +4,26 @@ import Config from "./Config";
 import ConfigAbout from "./ConfigAbout";
 import ConfigSettings from "./ConfigSettings";
 import ConfigTheme from "./ConfigTheme";
+import { allWorkSpaces, setNowWorkSpace } from "../functions/workspaces";
+import { initWorkSpace } from "../functions/init";
+import WorkSpaces from "./WorkSpaces";
 
 function Header() {
-
-  const handleReload = () => {
-    window.location.reload();
-  };
 
   const handleBlog = () => {
     setCurrentBlog(!currentBlog());
   };
 
+  const handleReload = () => {
+    window.location.reload();
+  };
+
   return (
     <div class="col-md mt-4 mx-1">
     <div class='d-flex justify-content-between'>
+      <WorkSpaces></WorkSpaces>
       <div>
-        <span onClick={handleReload} class="shade-hover rounded-2 p-2">DiaryMD</span>
+        <span onClick={[handleReload]} class="shade-hover rounded-2 p-2">DiaryMD</span>
         <Show
           when={currentConfig().BlogPath != ''}
         >

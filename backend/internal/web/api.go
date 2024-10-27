@@ -1,15 +1,18 @@
 package web
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
 
+	"github.com/aceberg/DiaryMD/internal/check"
 	"github.com/aceberg/DiaryMD/internal/conf"
 	"github.com/aceberg/DiaryMD/internal/models"
 	"github.com/aceberg/DiaryMD/internal/repo"
+	"github.com/aceberg/DiaryMD/internal/yaml"
 )
 
 func apiHandler(c *gin.Context) {
@@ -140,4 +143,24 @@ func apiGetFileText(c *gin.Context) {
 	file := repo.ReadFile(path)
 
 	c.IndentedJSON(http.StatusOK, file)
+}
+
+func apiGetWork(c *gin.Context) {
+
+	workSpaces := yaml.Read(appConfig.WsPath)
+
+	c.IndentedJSON(http.StatusOK, workSpaces)
+}
+
+func apiSetWork(c *gin.Context) {
+	var workSpaces []models.WorkSpace
+
+	wStr := c.PostForm("workspaces")
+
+	err := json.Unmarshal([]byte(wStr), &workSpaces)
+	check.IfError(err)
+
+	yaml.Write(appConfig.WsPath, workSpaces)
+
+	c.IndentedJSON(http.StatusOK, "OK")
 }
