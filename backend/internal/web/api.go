@@ -58,7 +58,7 @@ func apiDirList(c *gin.Context) {
 	var curDirs []models.DirsFiles
 
 	path := c.Query("path")
-	if path == "" {
+	if path == "" || path == "undefined" {
 		curDirs = repo.ListPath(appConfig.RepoPath)
 	} else {
 		curDirs = repo.ListPath(path)
@@ -71,7 +71,7 @@ func apiDirInfo(c *gin.Context) {
 	var dir models.DirsFiles
 
 	path := c.Query("path")
-	if path == "" {
+	if path == "" || path == "undefined" {
 		dir = repo.Info(appConfig.RepoPath)
 	} else {
 		dir = repo.Info(path)

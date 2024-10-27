@@ -22,6 +22,8 @@ export async function initWorkSpace() {
     setCurrentDir(await getDirInfo(currentConfig().RepoPath));
     setCurrentMenu(await getDirList(currentConfig().RepoPath));
     setEditorValue(await getFileByPath(currentFile().Path));
+
+    saveWspToFile();
 }
 
 async function initDefault() {
@@ -41,6 +43,4 @@ async function initWsp(wsp) {
         PageStep: wsp.PageStep,
     };
     setCurrentConfig(conf);
-
-    saveWspToFile();
 }

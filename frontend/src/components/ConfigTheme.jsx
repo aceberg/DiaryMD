@@ -1,5 +1,5 @@
-import { apiSaveTheme } from "../functions/api";
 import { applyCurrentTheme, currentTheme, setCurrentTheme } from "../functions/themes";
+import { saveThemeForWsp } from "../functions/workspaces";
 
 function ConfigTheme() {
 
@@ -21,7 +21,8 @@ function ConfigTheme() {
     });
 
     applyCurrentTheme();
-    apiSaveTheme(currentTheme());
+    // apiSaveTheme(currentTheme());
+    saveThemeForWsp(currentTheme());
   };
 
   return (

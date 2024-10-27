@@ -6,6 +6,7 @@ import ConfigSettings from "./ConfigSettings";
 import ConfigTheme from "./ConfigTheme";
 import WorkSpaces from "./WorkSpaces";
 import { nowWorkSpace } from "../functions/workspaces";
+import ConfigWorkSpace from "./ConfigWorkSpace";
 
 function Header() {
 
@@ -47,6 +48,7 @@ function Header() {
     </div>
     <ConfigSettings></ConfigSettings>
     <ConfigTheme></ConfigTheme>
+    <ConfigWorkSpace></ConfigWorkSpace>
     <ConfigAbout></ConfigAbout>
     </div>
   );

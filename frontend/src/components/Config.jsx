@@ -10,6 +10,7 @@ function Config() {
         <ul class="dropdown-menu">
           <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#themeModal">Theme</a></li>
           <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#configModal">Settings</a></li>
+          <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#workModal">WorkSpaces</a></li>
           <li><hr class="dropdown-divider"></hr></li>
           <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#aboutModal">About</a></li>
         </ul>
