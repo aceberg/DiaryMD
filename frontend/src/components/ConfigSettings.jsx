@@ -1,4 +1,3 @@
-import { apiSaveConfig } from "../functions/api";
 import { currentConfig, setCurrentConfig } from "../functions/exports";
 import { saveConfForWsp } from "../functions/workspaces";
 
@@ -10,7 +9,6 @@ function ConfigSettings() {
     const step = document.getElementById("step").value;
 
     setCurrentConfig({RepoPath: path,BlogPath: blog,PageStep: step});
-    // apiSaveConfig({RepoPath: path,BlogPath: blog,PageStep: step});
     saveConfForWsp({RepoPath: path,BlogPath: blog,PageStep: step});
 
     console.log("New config:", currentConfig());

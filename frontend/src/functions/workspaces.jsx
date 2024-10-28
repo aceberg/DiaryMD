@@ -59,7 +59,7 @@ export function saveWspToFile() {
             const wsps = allWorkSpaces();
             apiSaveWorkSpaces(wsps);
         }
-    }, 5000);
+    }, 2000);
 }
 
 export function addWorkSpace(name) {

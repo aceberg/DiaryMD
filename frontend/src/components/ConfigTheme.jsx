@@ -21,7 +21,6 @@ function ConfigTheme() {
     });
 
     applyCurrentTheme();
-    // apiSaveTheme(currentTheme());
     saveThemeForWsp(currentTheme());
   };
 

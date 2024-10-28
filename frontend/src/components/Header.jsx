@@ -42,7 +42,9 @@ function Header() {
       <Show
         when={nowWorkSpace() != null}
       >
-        <span class="shade-hover rounded-2 p-2">{nowWorkSpace().Name}</span>
+        <div class="menu-head rounded shade-hover" title="WorkSpace">
+          <span class="mx-4">{nowWorkSpace().Name}</span>
+        </div>
       </Show>
       <Config></Config>
     </div>
