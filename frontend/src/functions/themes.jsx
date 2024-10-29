@@ -32,8 +32,8 @@ const nightTheme = {
     Edit: '#0f2c45',
     Outline: '#616161',
 };
-const greyTheme = {
-    Theme: 'grey',
+const grayTheme = {
+    Theme: 'gray',
     Font: '#000000',
     Menu: '#555753',
     Back: '#888a85',
@@ -49,8 +49,8 @@ export function applyCurrentTheme() {
         case 'dark':
             setCurrentTheme(darkTheme);
             break;
-        case 'grey':
-            setCurrentTheme(greyTheme);
+        case 'gray':
+            setCurrentTheme(grayTheme);
             break;
         case 'lake':
             setCurrentTheme(lakeTheme);

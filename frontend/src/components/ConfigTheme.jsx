@@ -43,7 +43,7 @@ function ConfigTheme() {
                     <select id="theme" class="form-select">
                       <option value={currentTheme().Theme} selected disabled>{currentTheme().Theme}</option>
                       <option value="dark">dark</option>
-                      <option value="grey">grey</option>
+                      <option value="gray">gray</option>
                       <option value="lake">lake</option>
                       <option value="night">night</option>
                       <option value="sand">sand</option>

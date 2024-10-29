@@ -27,15 +27,17 @@ function ConfigWorkSpace() {
           </div>
           <div class="modal-body">
             <For each={allWorkSpaces()}>{(wsp) =>
-            <div class='d-flex justify-content-between'>
-              {wsp.Name}
+            <div class='d-flex justify-content-between shade-hover px-3'>
+              <div>
+                <i class="bi bi-inbox-fill me-3" style={{ color: wsp.Colors.Menu }}></i>{wsp.Name}
+              </div>
               <i class="bi bi-x shade-hover rounded-2 p-1" title='Delete' onClick={[handleDel, wsp.Name]}></i>
             </div>
             }</For>
-            <form class="input-group">
+            <div class="input-group">
               <input class="form-control mt-2" id="addwsp" placeholder="New WorkSpace"></input>
               <button class="btn btn-primary mt-2" onClick={handleAdd}>Add</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
