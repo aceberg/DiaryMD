@@ -20,7 +20,8 @@ const updTabList = (curFile) => {
     }
   }
   localSaveTabsFile(tabs, curFile);
-  // console.log("TABS", tabs);
+  console.log("updTabList-curFile", curFile);
+  console.log("updTabList", tabs);
 
   return tabs;
 };
@@ -55,7 +56,8 @@ function Tabs() {
     <div class='file-place'>
       <For each={[currentFile()]}>{(f) =>
         <For each={tabList()}>{(tab) =>
-          <Show
+        { console.log("oneTab", {tab});
+          return <Show
             when={f.Path == tab.Path}
             fallback={
               <button class="tab rounded-top" title={tab.Path}>
@@ -72,8 +74,8 @@ function Tabs() {
               <span class="mx-2">{tab.Name}</span>
               <i class="bi bi-x shade-hover rounded-2 p-1" title='Close' onClick={handleClose}></i>
             </button>
-          </Show>
-        }</For>
+          </Show>;
+        }}</For>
       }</For>
     </div>
   );
