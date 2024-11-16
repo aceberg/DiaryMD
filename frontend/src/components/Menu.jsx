@@ -3,13 +3,12 @@ import { setEditorValue } from './Editor';
 import { getFileByPath, getDirList, getDirInfo } from '../functions/api';
 import { currentDir, currentMenu, setCurrentDir, setCurrentFile, setCurrentMenu } from '../functions/exports';
 import MenuEdit from './MenuEdit';
+import { openFileAndTab } from '../functions/tabs';
 
 function Menu() {
 
   const handleFile = async (file) => {
-    const fileText = await getFileByPath(file.Path);
-    setCurrentFile(file);
-    setEditorValue(fileText);
+    openFileAndTab(file);
   };
 
   const handleDir = async (dir) => {
