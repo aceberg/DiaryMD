@@ -37,7 +37,7 @@ type WorkSpace struct {
 	Colors   ColorTheme  `yaml:"colors" json:"Colors"`
 	RepoPath string      `yaml:"repopath" json:"RepoPath"`
 	BlogPath string      `yaml:"blogpath" json:"BlogPath"`
-	PageStep int         `yaml:"page_step" json:"PageStep"`
+	PageStep int         `yaml:"page_step" json:"PageStep,string"`
 	CurFile  DirsFiles   `yaml:"cur_file" json:"CurFile"`
 	Tabs     []DirsFiles `yaml:"tabs" json:"Tabs"`
 }

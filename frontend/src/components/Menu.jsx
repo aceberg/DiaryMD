@@ -1,7 +1,6 @@
 import { For, Show } from 'solid-js';
-import { setEditorValue } from './Editor';
-import { getFileByPath, getDirList, getDirInfo } from '../functions/api';
-import { currentDir, currentMenu, setCurrentDir, setCurrentFile, setCurrentMenu } from '../functions/exports';
+import { getDirList, getDirInfo } from '../functions/api';
+import { currentDir, currentMenu, setCurrentDir, setCurrentMenu } from '../functions/exports';
 import MenuEdit from './MenuEdit';
 import { openFileAndTab } from '../functions/tabs';
 
