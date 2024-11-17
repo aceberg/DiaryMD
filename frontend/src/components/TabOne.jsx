@@ -1,20 +1,13 @@
-import { currentFile, emptyFile, currentUnsaved } from "../functions/exports";
+import { currentFile, currentUnsaved } from "../functions/exports";
 import { Show } from "solid-js";
-import { openFileAndTab, updTabList } from '../functions/tabs';
+import { closeFileAndTab, openFileAndTab } from '../functions/tabs';
 
 function TabOne(props) {
 
   const curPath = currentFile().Path;
 
   const handleClose = async () => {
-    
-    let file = emptyFile;
-    file.Path = currentFile().Path;
-    const tabs = await updTabList(file);
-    if (tabs.length > 0) {
-      file = tabs[0];
-    } 
-    handleFile(file);
+    closeFileAndTab();
   };
 
   const handleFile = async (file) => {

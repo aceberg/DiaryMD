@@ -15,13 +15,16 @@ export async function initWorkSpace() {
         await initWsp(wsp);
     }
     
-    // setCurrentTabList needs to be BEFORE setCurrentFile for correct Tabs work
-    setCurrentTabList(localGetTabs());  
     setCurrentFile(localGetFile());
+    setCurrentTabList(localGetTabs());  
 
     setCurrentDir(await getDirInfo(currentConfig().RepoPath));
     setCurrentMenu(await getDirList(currentConfig().RepoPath));
-    setEditorValue(await getFileByPath(currentFile().Path));
+    if (currentFile().Name != '') {
+        setEditorValue(await getFileByPath(currentFile().Path));
+    } else {
+        setEditorValue('');
+    }
 
     saveWspToFile();
 }
