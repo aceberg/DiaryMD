@@ -3,6 +3,55 @@
 </a>DiaryMD</h1>
 <br/>
 
-Markdown diary. Work in progress
+[![Docker](https://github.com/aceberg/DiaryMD/actions/workflows/main-docker-all.yml/badge.svg)](https://github.com/aceberg/DiaryMD/actions/workflows/main-docker-all.yml)
+[![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/aceberg/diarymd)](https://hub.docker.com/r/aceberg/diarymd)
 
-![Screenshot1](./assets/Screenshot_01.png)
+Markdown diary with:
+- Fully configurable Themes
+- Tabs
+- WorkSpaces
+- Simple Blog
+- Full screen mode
+- Works with a given directory (could be `git` repo). No DB needed
+
+![Screenshot](./assets/Screenshot_05.png)
+
+## More screenshots
+<details>
+  <summary>Expand</summary>
+
+![Screenshot](./assets/Screenshot_04.png)
+![Screenshot](./assets/Screenshot_03.png)
+![Screenshot](./assets/Screenshot_02.png)
+
+</details>
+
+## Quick start (Docker)
+<details>
+  <summary>Expand</summary>
+
+```sh
+docker run --name DiaryMD \
+	-e "TZ=$YOURTIMEZONE" \
+	-v ~/.dockerdata/DiaryMD:/data/DiaryMD \   # config
+    -v ~/.dockerdata/DiaryRepo:/repo \         # diary
+    -p 8854:8854 \
+    aceberg/diarymd
+```
+
+</details> 
+
+## Install Binary
+<details>
+  <summary>Expand</summary>
+
+
+</details> 
+
+## Auth
+<details>
+  <summary>Expand</summary>
+
+
+
+</details> 

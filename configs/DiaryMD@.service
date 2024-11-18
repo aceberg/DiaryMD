@@ -1,0 +1,13 @@
+[Unit]
+Description=DiaryMD
+Documentation=https://github.com/aceberg/DiaryMD
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=%i
+ExecStart=/usr/bin/diarymd -d /home/%i/.config/DiaryMD/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

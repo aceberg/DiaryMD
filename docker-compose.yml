@@ -1,0 +1,12 @@
+version: "3"
+services:
+  diarymd:
+    image: aceberg/diarymd
+    restart: unless-stopped
+    ports:
+    - 8854:8854
+    volumes:
+    - ~/.dockerdata/DiaryMD:/data/DiaryMD  # config
+    - ~/.dockerdata/DiaryRepo:/repo        # diary
+    environment:
+      TZ: Asia/Novosibirsk    # required, default: ""
