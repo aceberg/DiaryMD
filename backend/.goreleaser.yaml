@@ -49,8 +49,6 @@ nfpms:
 archives:
   - files:
     - LICENSE
-    - README.md
-    - CHANGELOG.md
     - src: ./configs/DiaryMD.service
       dst: DiaryMD.service
     - src: ./configs/DiaryMD@.service
