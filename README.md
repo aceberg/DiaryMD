@@ -3,7 +3,7 @@
 </a>DiaryMD</h1>
 <br/>
 
-[![Docker](https://github.com/aceberg/DiaryMD/actions/workflows/main-docker-all.yml/badge.svg)](https://github.com/aceberg/DiaryMD/actions/workflows/main-docker-all.yml)
+[![Main-Docker](https://github.com/aceberg/DiaryMD/actions/workflows/main-docker.yml/badge.svg)](https://github.com/aceberg/DiaryMD/actions/workflows/main-docker.yml)
 [![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/aceberg/diarymd)](https://hub.docker.com/r/aceberg/diarymd)
 
 Markdown diary with:
@@ -14,15 +14,15 @@ Markdown diary with:
 - Full screen mode
 - Works with a given directory (could be `git` repo). No DB needed
 
-![Screenshot](./assets/Screenshot_05.png)
+![Screenshot](https://raw.githubusercontent.com/aceberg/DiaryMD/refs/heads/main/assets/Screenshot_05.png)
 
 ## More screenshots
 <details>
   <summary>Expand</summary>
 
-![Screenshot](./assets/Screenshot_04.png)
-![Screenshot](./assets/Screenshot_03.png)
-![Screenshot](./assets/Screenshot_02.png)
+![Screenshot](https://raw.githubusercontent.com/aceberg/DiaryMD/refs/heads/main/assets/Screenshot_04.png)
+![Screenshot](https://raw.githubusercontent.com/aceberg/DiaryMD/refs/heads/main/assets/Screenshot_03.png)
+![Screenshot](https://raw.githubusercontent.com/aceberg/DiaryMD/refs/heads/main/assets/Screenshot_02.png)
 
 </details>
 
