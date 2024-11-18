@@ -11,11 +11,8 @@ import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/modal";
 import "font-awesome/css/font-awesome.min.css"; // For EasyMDE
 import './App.css';
-import { initWorkSpace } from './functions/init';
 
 function App() {
-
-  initWorkSpace();
   
   return (
     <div class='container-lg'>

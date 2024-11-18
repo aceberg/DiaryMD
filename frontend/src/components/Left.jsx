@@ -2,8 +2,12 @@ import Menu from './Menu';
 import Search from './Search';
 import NewHomeSave from './NewHomeSave';
 import './Left.css';
+import { initWorkSpace } from '../functions/init';
 
 function Left() {  
+
+  initWorkSpace();
+
   return (
     <div class='col-md-3 mb-3'>
       <Search></Search>
