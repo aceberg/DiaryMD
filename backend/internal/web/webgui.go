@@ -26,7 +26,7 @@ var (
 )
 
 // Gui - start web server
-func Gui(dirPath, nodePath string) {
+func Gui(dirPath string) {
 
 	confPath := dirPath + "/config.yaml"
 	check.Path(confPath)
@@ -35,6 +35,7 @@ func Gui(dirPath, nodePath string) {
 	appConfig.DirPath = dirPath
 	appConfig.ConfPath = confPath
 	appConfig.WsPath = dirPath + "/workspaces.yaml"
+	check.Path(appConfig.WsPath)
 
 	log.Println("INFO: starting web gui with config", appConfig.ConfPath)
 

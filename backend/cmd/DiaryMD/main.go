@@ -9,12 +9,10 @@ import (
 )
 
 const dirPath = "/data/DiaryMD"
-const nodePath = ""
 
 func main() {
 	dirPtr := flag.String("d", dirPath, "Path to config dir")
-	nodePtr := flag.String("n", nodePath, "Path to node modules")
 	flag.Parse()
 
-	web.Gui(*dirPtr, *nodePtr) // webgui.go
+	web.Gui(*dirPtr) // webgui.go
 }

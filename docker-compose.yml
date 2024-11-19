@@ -5,8 +5,13 @@ services:
     restart: unless-stopped
     ports:
     - 8854:8854
+    user: "1000:1000" # put your user UID:GID here
     volumes:
     - ~/.dockerdata/DiaryMD:/data/DiaryMD  # config
     - ~/.dockerdata/DiaryRepo:/repo        # diary
     environment:
-      TZ: Asia/Novosibirsk    # required, default: ""
+      TZ: Asia/Novosibirsk   # required, default: ""
+      REPOPATH: /repo        # optinal, path to diary dir, default: ""
+
+# WARNING!
+# Mounted volumes must have write permission for non-root user

@@ -11,7 +11,8 @@ function ConfigAbout() {
             <button type="button" class="btn-close shade-hover" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            Github: <a href="https://github.com/aceberg/DiaryMD">https://github.com/aceberg/DiaryMD</a>
+            <p>Github: <a href="https://github.com/aceberg/DiaryMD">https://github.com/aceberg/DiaryMD</a></p>
+            <p>Donate: <a href="https://github.com/aceberg#donate">https://github.com/aceberg#donate</a></p>
           </div>
         </div>
       </div>
