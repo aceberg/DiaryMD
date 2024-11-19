@@ -6,13 +6,13 @@
 [![Main-Docker](https://github.com/aceberg/DiaryMD/actions/workflows/main-docker.yml/badge.svg)](https://github.com/aceberg/DiaryMD/actions/workflows/main-docker.yml)
 [![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/aceberg/diarymd)](https://hub.docker.com/r/aceberg/diarymd)
 
-Markdown diary with:
+Markdown diary written in `Go` and `SolidJS`:
 - Fully configurable Themes
 - Tabs
 - WorkSpaces
 - Simple Blog
 - Full screen mode
-- Works with a given directory (could be `git` repo). No DB needed
+- Works with a given directory (could be a `git` repo). No DB needed
 
 ![Screenshot](https://raw.githubusercontent.com/aceberg/DiaryMD/refs/heads/main/assets/Screenshot_05.png)
 
