@@ -6,7 +6,7 @@
 [![Main-Docker](https://github.com/aceberg/DiaryMD/actions/workflows/main-docker.yml/badge.svg)](https://github.com/aceberg/DiaryMD/actions/workflows/main-docker.yml)
 [![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/aceberg/diarymd)](https://hub.docker.com/r/aceberg/diarymd)
 
-Markdown diary written in `Go` and `SolidJS`:
+Markdown editor written in `Go` and `SolidJS`:
 - Fully configurable Themes
 - Tabs
 - WorkSpaces
