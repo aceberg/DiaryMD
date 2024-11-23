@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Left from './components/Left';
 import Right from './components/Right';
 import Blog from './components/Blog';
+import DownButton from './components/DownButton';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.min.css";
@@ -29,6 +30,7 @@ function App() {
       >
       <Blog></Blog>
       </Show>
+      <DownButton></DownButton>
     </div>
   );
 }

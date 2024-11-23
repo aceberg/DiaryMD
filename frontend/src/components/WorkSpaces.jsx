@@ -11,7 +11,7 @@ function WorkSpaces() {
   return (
     <div class="dropdown">
       
-      <i class="bi bi-inboxes shade-hover rounded-2 p-2 dropdown-toggle" data-bs-toggle="dropdown" title="WorkSpaces" style="font-size:25px"></i> 
+      <i class="bi bi-inboxes shade-hover big-btn rounded-2 p-2 dropdown-toggle" data-bs-toggle="dropdown" title="WorkSpaces"></i> 
       
       <ul class="dropdown-menu">
         <li><a href="#" class="dropdown-item" onClick={[handleWorkSpace, null]}>Default</a></li>

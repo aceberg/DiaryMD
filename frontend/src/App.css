@@ -51,6 +51,11 @@ a {
   cursor: pointer;
 }
 
+/* For Settings, WorkSpaces, Down buttons */
+.big-btn {
+  font-size: 25px;
+}
+
 /* Place for Search or Tab */
 .file-place {
   min-height: 50px;
