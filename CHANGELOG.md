@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.3] - 2024-11-24
+### Added
+- Copy file or dir Button
+- Show Unsaved when scrolled down
+- Change Dir in Menu, when Tab changed
+
 ## [0.1.2] - 2024-11-23
 ### Added
 - Scroll Up/Down buttons

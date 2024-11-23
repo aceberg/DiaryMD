@@ -1,6 +1,6 @@
 import { setEditorValue } from "../components/Editor";
-import { getFileByPath } from "./api";
-import { currentFile, currentTabList, emptyFile, setCurrentFile, setCurrentTabList } from "./exports";
+import { getDirInfo, getDirList, getFileByPath } from "./api";
+import { currentFile, currentTabList, emptyFile, setCurrentDir, setCurrentFile, setCurrentMenu, setCurrentTabList } from "./exports";
 import { localSaveTabsFile } from "./local";
 
 
@@ -12,6 +12,9 @@ export const openFileAndTab = async (file) => {
   }
   setCurrentFile(file);
   setEditorValue(fileText);
+  
+  setCurrentDir(await getDirInfo(file.UpPath));
+  setCurrentMenu(await getDirList(file.UpPath));
 
   updTabList(file);
 };

@@ -3,6 +3,7 @@ import Search from './Search';
 import NewHomeSave from './NewHomeSave';
 import './Left.css';
 import { initWorkSpace } from '../functions/init';
+import Unsaved from './Unsaved';
 
 function Left() {  
 
@@ -17,6 +18,7 @@ function Left() {
       <div class="menu-card rounded-bottom">
         <Menu></Menu>
       </div>
+      <Unsaved></Unsaved>
     </div>
   );
 }

@@ -56,6 +56,7 @@ func Gui(dirPath string) {
 
 	router.GET("/api", apiHandler)               // api.go
 	router.GET("/api/config", apiGetConfig)      // api.go
+	router.GET("/api/copy", apiCopy)             // api.go
 	router.GET("/api/dir/list", apiDirList)      // api.go
 	router.GET("/api/dir/info", apiDirInfo)      // api.go
 	router.GET("/api/file/text", apiGetFileText) // api.go

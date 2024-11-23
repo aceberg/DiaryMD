@@ -4,6 +4,8 @@ import (
 	"log"
 	"os"
 
+	cp "github.com/otiai10/copy"
+
 	"github.com/aceberg/DiaryMD/internal/check"
 )
 
@@ -51,4 +53,25 @@ func Move(path, newPath string) {
 
 	err := os.Rename(path, newPath)
 	check.IfError(err)
+}
+
+// Copy - copy file or dir
+func Copy(path string) {
+
+	info := Info(path)
+	newPath := info.UpPath + "/" + info.Name + "-copy"
+
+	if info.IsDir {
+		log.Println("Copy dir to", newPath)
+
+		err := cp.Copy(path, newPath)
+		check.IfError(err)
+
+	} else {
+		log.Println("Copy file to", newPath)
+
+		CreateFile(newPath)
+		fileText := ReadFile(path)
+		WriteFile(newPath, fileText)
+	}
 }

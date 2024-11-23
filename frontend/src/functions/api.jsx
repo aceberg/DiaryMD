@@ -142,3 +142,10 @@ export const apiSaveWorkSpaces = async (wsps) => {
   request.open("POST", api+'/api/workspaces', true);
   request.send(data);
 };
+
+export const apiCopy = async (path) => {
+  const url = api+'/api/copy?path='+path;
+  const ok = await (await fetch(url)).json();
+
+  return ok;
+};

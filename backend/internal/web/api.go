@@ -164,3 +164,14 @@ func apiSetWork(c *gin.Context) {
 
 	c.IndentedJSON(http.StatusOK, "OK")
 }
+
+func apiCopy(c *gin.Context) {
+
+	path := c.Query("path")
+	if path != "" && path != "undefined" {
+
+		repo.Copy(path)
+	}
+
+	c.IndentedJSON(http.StatusOK, "OK")
+}

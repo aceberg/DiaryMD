@@ -1,4 +1,4 @@
-import { deleteFileOrDir, getDirList, renameFileOrDir } from "../functions/api";
+import { apiCopy, deleteFileOrDir, getDirList, renameFileOrDir } from "../functions/api";
 import { currentDir, setCurrentMenu} from '../functions/exports';
 
 function MenuEdit(props) {
@@ -14,6 +14,12 @@ function MenuEdit(props) {
   const handleDelete = async (dir) => {
     console.log('Delete:', dir);
     await deleteFileOrDir(dir.Path);
+    setCurrentMenu(await getDirList(currentDir().Path));
+  };
+
+  const handleCopy = async (dir) => {
+    console.log('Copy:', dir);
+    await apiCopy(dir.Path);
     setCurrentMenu(await getDirList(currentDir().Path));
   };
 
@@ -42,6 +48,7 @@ function MenuEdit(props) {
             </div>
             <div class="modal-footer d-flex justify-content-between">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onClick={[handleDelete, props.data]}>Delete</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={[handleCopy, props.data]}>Copy</button>
               <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onClick={[handleSave, props.data]}>Save</button>
             </div>
           </div>
