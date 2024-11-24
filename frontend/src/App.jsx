@@ -1,3 +1,4 @@
+import { Router, Route } from "@solidjs/router";
 import { Show } from 'solid-js';
 import { currentBlog } from './functions/exports';
 import Header from './components/Header';
@@ -12,6 +13,7 @@ import "bootstrap/js/dist/dropdown";
 import "bootstrap/js/dist/modal";
 import "font-awesome/css/font-awesome.min.css"; // For EasyMDE
 import './App.css';
+import Wsp from "./routes/wsp";
 
 function App() {
   
@@ -31,6 +33,9 @@ function App() {
       <Blog></Blog>
       </Show>
       <DownButton></DownButton>
+      <Router>
+        <Route path="/wsp/:name" component={Wsp} />
+      </Router>
     </div>
   );
 }

@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.4] - 2024-11-25
+### Added
+- `/wsp/:name` route
+
 ## [0.1.3] - 2024-11-24
 ### Added
 - Copy file or dir Button

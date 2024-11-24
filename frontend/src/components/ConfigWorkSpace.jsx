@@ -29,7 +29,8 @@ function ConfigWorkSpace() {
             <For each={allWorkSpaces()}>{(wsp) =>
             <div class='d-flex justify-content-between shade-hover px-3'>
               <div>
-                <i class="bi bi-inbox-fill me-3" style={{ color: wsp.Colors.Menu }}></i>{wsp.Name}
+                <i class="bi bi-inbox-fill me-3" style={{ color: wsp.Colors.Menu }}></i>  
+                <a href={"/wsp/"+wsp.Name}>{wsp.Name}</a>
               </div>
               <i class="bi bi-x shade-hover rounded-2 p-1" title='Delete' onClick={[handleDel, wsp.Name]}></i>
             </div>
