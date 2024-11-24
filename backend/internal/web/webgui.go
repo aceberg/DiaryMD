@@ -51,7 +51,8 @@ func Gui(dirPath string) {
 	templ := template.Must(template.New("").ParseFS(templFS, "public/index.html"))
 	router.SetHTMLTemplate(templ) // templates
 
-	router.GET("/", indexHandler) // index.go
+	router.GET("/", indexHandler)          // index.go
+	router.GET("/wsp/:name", indexHandler) // index.go
 	router.StaticFS("/fs", http.FS(assetsFS))
 
 	router.GET("/api", apiHandler)               // api.go
