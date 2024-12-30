@@ -111,11 +111,6 @@ export const getDirList = async (path) => {
   const url = api+'/api/dir/list?path='+path;
   const dirsAndFiles = await (await fetch(url)).json();
 
-  if (dirsAndFiles && dirsAndFiles.length > 0) {
-    dirsAndFiles.sort((a, b) => a.Name > b.Name);
-    dirsAndFiles.sort((a, b) => a.IsDir < b.IsDir);
-  }
-
   return dirsAndFiles;
 };
 

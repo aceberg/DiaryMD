@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"sort"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
@@ -56,6 +57,7 @@ func apiSetTheme(c *gin.Context) {
 
 func apiDirList(c *gin.Context) {
 	var curDirs []models.DirsFiles
+	var dirs, folders []models.DirsFiles
 
 	path := c.Query("path")
 	if path == "" || path == "undefined" {
@@ -63,6 +65,20 @@ func apiDirList(c *gin.Context) {
 	} else {
 		curDirs = repo.ListPath(path)
 	}
+
+	sort.Slice(curDirs, func(i, j int) bool {
+		return curDirs[i].Name < curDirs[j].Name
+	})
+
+	// Sort by .IsDir field
+	for _, d := range curDirs {
+		if d.IsDir {
+			dirs = append(dirs, d)
+		} else {
+			folders = append(folders, d)
+		}
+	}
+	curDirs = append(dirs, folders...)
 
 	c.IndentedJSON(http.StatusOK, curDirs)
 }
