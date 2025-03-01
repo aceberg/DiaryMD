@@ -8,9 +8,8 @@ function Right() {
 
   const handleKeydown = (event) => {
     // Check for Ctrl + S
-    if (event.ctrlKey && event.key === "s") {
+    if (event.ctrlKey && ((event.key === "s") || (event.key === "ы"))) {
       event.preventDefault(); // Prevent the default browser save behavior
-      console.log('Ctrl+S');
       saveFile();
     }
   };

@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.6] - 2025-03-01
+### Added
+- `Ctrl-S` fix
+
 ## [0.1.5] - 2024-12-30
 ### Fixed
 - Sort Menu bug with Google Chrome
